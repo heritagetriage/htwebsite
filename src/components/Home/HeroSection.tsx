@@ -1,137 +1,80 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
-  // Carousel images - replace with your actual image URLs
-  const carouselImages = [
-    {
-      url: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a",
-      title: "International Business",
-      subtitle: "Expansion Experts",
-      description: "Navigate global markets with confidence. We provide strategic consulting services to help your business expand internationally and succeed in new territories."
-    },
-    {
-      url: "https://images.unsplash.com/photo-1573164713988-8665fc963095",
-      title: "Strategic Consulting",
-      subtitle: "For Global Growth",
-      description: "Expert guidance to navigate international markets and regulatory challenges."
-    },
-    {
-      url: "https://images.unsplash.com/photo-1560179707-f14e90ef3623",
-      title: "Market Entry",
-      subtitle: "Tailored Solutions",
-      description: "Customized strategies to help your business thrive in new territories."
-    }
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  const nextSlide = useCallback(() => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prevIndex) => (prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1));
-    setTimeout(() => setIsTransitioning(false), 500); // Match this with the CSS transition duration
-  }, [isTransitioning, carouselImages.length]);
-
-  const prevSlide = useCallback(() => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1));
-    setTimeout(() => setIsTransitioning(false), 500); // Match this with the CSS transition duration
-  }, [isTransitioning, carouselImages.length]);
-
-  // Auto-advance the carousel
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000); // Change slide every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [nextSlide]);
-
   return (
-    <section className="relative h-[600px] md:h-[700px] overflow-hidden">
-      {/* Carousel Images */}
-      {carouselImages.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 w-full h-full carousel-slide ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-          data-bg-url={image.url}
-          ref={(el) => {
-            if (el) {
-              // Set background image using CSS custom property instead of inline style
-              el.style.setProperty('--bg-image', `url(${image.url})`);
-            }
-          }}
+    <section className="relative min-h-screen bg-slate-900 overflow-hidden">
+      {/* Background Video */}
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
         >
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-          
-          {/* Content */}
-          <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl" data-aos="fade-up">
-              <h1 className="text-4xl md:text-6xl font-bold mb-2 text-white" data-aos="fade-up" data-aos-delay="100">
-                {image.title}
-                <span className="block text-yellow-400">{image.subtitle}</span>
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-blue-100" data-aos="fade-up" data-aos-delay="200">
-                {image.description}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="300">
-                <Link
-                  to="/booking"
-                  className="bg-yellow-500 text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
-                >
-                  Book Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-                <a
-                  href="#services"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300"
-                >
-                  Our Services
-                </a>
-              </div>
-            </div>
+          <source src="/images/services/hero.mp4" type="video/mp4" />
+          {/* Fallback background for browsers that don't support video */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900"></div>
+        </video>
+        {/* Professional overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
+      </div>
+
+      {/* Main Content - Centered Layout */}
+      <div className="relative z-10 min-h-screen flex items-center justify-center">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 w-full text-center">
+          {/* Professional Badge */}
+          <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 mb-8" data-aos="fade-up">
+            <div className="w-3 h-3 bg-white rounded-full mr-3"></div>
+            <span className="text-sm font-medium tracking-wide text-white">STRATEGIC BUSINESS CONSULTANCY</span>
+          </div>
+
+          {/* Main Headline */}
+          <div className="space-y-6 mb-8" data-aos="fade-up" data-aos-delay="200">
+            <h1 className="text-6xl md:text-7xl xl:text-8xl font-light leading-tight text-white">
+              Strategic Consulting
+            </h1>
+            <h2 className="text-5xl md:text-6xl xl:text-7xl font-bold text-white/90">
+              For Global Growth
+            </h2>
+          </div>
+
+          {/* Description */}
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="400">
+            Expert guidance to navigate international markets and regulatory challenges.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="600">
+            <Link
+              to="#contact"
+              className="inline-flex items-center justify-center bg-white text-slate-900 px-10 py-5 rounded-full text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg"
+            >
+              Get Started Today
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+
+            <a
+              href="#services"
+              className="inline-flex items-center justify-center border-2 border-white/30 text-white px-10 py-5 rounded-full text-lg font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+            >
+              Our Services
+            </a>
           </div>
         </div>
-      ))}
-      
-      {/* Navigation Arrows */}
-      <button 
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 bg-black bg-opacity-50 rounded-full p-2 text-white hover:bg-opacity-75 transition-all"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="h-8 w-8" />
-      </button>
-      <button 
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 bg-black bg-opacity-50 rounded-full p-2 text-white hover:bg-opacity-75 transition-all"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="h-8 w-8" />
-      </button>
-      
-      {/* Indicators */}
-      <div className="absolute bottom-8 left-0 right-0 z-30 flex justify-center space-x-2">
-        {carouselImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`h-3 w-3 rounded-full transition-all ${index === currentIndex ? 'bg-white w-8' : 'bg-white bg-opacity-50'}`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
       </div>
-      
-      {/* Wave Divider */}
-      <div className="absolute bottom-0 left-0 right-0 z-20">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 120L1440 120L1440 0C1440 0 1140 80 720 80C300 80 0 0 0 0V120Z" fill="white"/>
-        </svg>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white z-10" data-aos="fade-up" data-aos-delay="800">
+        <div className="flex flex-col items-center cursor-pointer group">
+          <span className="text-sm mb-2 opacity-70 group-hover:opacity-100 transition-opacity">Scroll to explore</span>
+          <ChevronDown className="w-6 h-6 animate-bounce opacity-70 group-hover:opacity-100 transition-opacity" />
+        </div>
       </div>
     </section>
   );

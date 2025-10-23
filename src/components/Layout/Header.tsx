@@ -10,7 +10,6 @@ const Header: React.FC = () => {
     { name: 'Home', href: '/' },
     { name: 'Services', href: '#services' },
     { name: 'Strategic Focus', href: '#priorities' },
-    { name: 'Events', href: '#events' },
     { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -23,28 +22,29 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-24">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-3">
-              <img src="/images/heritage-logo.jpg" alt="Heritage Triage Logo" className="h-12 w-auto" />
-              <span className="text-xl font-bold text-gray-900">Heritage Triage</span>
+            <Link to="/" className="flex items-center space-x-4">
+              <img src="/images/heritage-logo.jpg" alt="Heritage Triage Logo" className="h-16 w-auto" />
+              <div className="text-2xl font-light text-gray-900">
+                heritage<span className="font-bold">triage</span>
+              </div>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          <div className="hidden lg:block">
+            <div className="flex items-center space-x-8">
               {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    isActive(item.href)
-                      ? 'text-blue-700 bg-blue-50'
-                      : 'text-gray-600 hover:text-blue-700 hover:bg-blue-50'
-                  }`}
+                  className={`text-base font-medium transition-colors duration-200 ${isActive(item.href)
+                    ? 'text-gray-900 border-b-2 border-gray-900 pb-1'
+                    : 'text-gray-600 hover:text-gray-900'
+                    }`}
                 >
                   {item.name}
                 </a>
@@ -52,51 +52,52 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          <div className="hidden md:block">
-            <Link
-              to="/booking"
-              className="bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-800 transition-colors"
+          <div className="hidden lg:block">
+            <a
+              href="#contact"
+              className="bg-gray-900 text-white px-8 py-3 rounded-full text-base font-medium hover:bg-gray-800 transition-colors duration-200"
             >
-              Book Consultation
-            </Link>
+              Get in Touch
+            </a>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900"
+              className="text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900 p-2"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+          <div className="lg:hidden">
+            <div className="px-4 pt-4 pb-6 space-y-4 bg-white border-t border-gray-100">
               {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    isActive(item.href)
-                      ? 'text-blue-700 bg-blue-50'
-                      : 'text-gray-600 hover:text-blue-700 hover:bg-blue-50'
-                  }`}
+                  className={`block text-lg font-medium transition-colors duration-200 ${isActive(item.href)
+                    ? 'text-gray-900'
+                    : 'text-gray-600 hover:text-gray-900'
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
-              <Link
-                to="/booking"
-                className="block w-full text-center bg-blue-700 text-white px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Book Consultation
-              </Link>
+              <div className="pt-4">
+                <a
+                  href="#contact"
+                  className="block w-full text-center bg-gray-900 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Get in Touch
+                </a>
+              </div>
             </div>
           </div>
         )}
