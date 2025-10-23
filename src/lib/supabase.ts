@@ -70,6 +70,7 @@ export type Database = {
           name: string;
           email: string;
           company: string | null;
+          phone: string | null;
           message: string;
           status: string | null;
           notes: string | null;

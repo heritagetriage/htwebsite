@@ -12,21 +12,22 @@ const ContactForm: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
     try {
-      await submitContactForm(formData);
+      console.log('Submitting contact form data:', formData);
+      const result = await submitContactForm(formData);
+      console.log('Contact form submitted successfully:', result);
       setIsSubmitted(true);
       setFormData({ name: "", email: "", company: "", phone: "", message: "" });
     } catch (error) {
-      // Fallback: Show success message even if database fails
-      // In production, you might want to send email directly or use a different service
-      console.warn("Contact form submission failed, but showing success to user:", error);
-      setIsSubmitted(true);
-      setFormData({ name: "", email: "", company: "", phone: "", message: "" });
+      console.error("Contact form submission failed:", error);
+      setError(error instanceof Error ? error.message : 'Failed to submit form. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -270,6 +271,13 @@ const ContactForm: React.FC = () => {
                   placeholder="Tell us about your international expansion goals and how we can help... *"
                 />
               </div>
+
+              {/* Error Display */}
+              {error && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700">
+                  <p className="text-sm">{error}</p>
+                </div>
+              )}
 
               {/* Submit Button */}
               <div className="pt-8">
