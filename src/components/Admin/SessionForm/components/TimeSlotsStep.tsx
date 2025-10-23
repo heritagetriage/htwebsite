@@ -1,6 +1,7 @@
 import React from 'react';
 import { Plus, Edit, Trash2, Clock } from 'lucide-react';
 import { TimeSlotsStepProps } from '../types';
+import { TimeSlot } from '../../../../types';
 import TimeSlotForm from '../../TimeSlotForm';
 
 const TimeSlotsStep: React.FC<TimeSlotsStepProps> = ({
@@ -100,7 +101,7 @@ const TimeSlotsStep: React.FC<TimeSlotsStepProps> = ({
             setEditingTimeSlot(null);
           }}
           onSave={onSaveTimeSlot}
-          timeSlot={editingTimeSlot as any}
+          timeSlot={editingTimeSlot as TimeSlot | null}
         />
       )}
 
@@ -110,36 +111,40 @@ const TimeSlotsStep: React.FC<TimeSlotsStepProps> = ({
           <h4 className="text-md font-medium text-gray-900 mb-4">Quick Add Time Slot</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="start-time-input" className="block text-sm font-medium text-gray-700 mb-1">
                 Start Time *
               </label>
               <input
+                id="start-time-input"
                 type="datetime-local"
                 value={newTimeSlot.start_time}
                 onChange={(e) => onNewTimeSlotChange('start_time', e.target.value)}
                 className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                   newTimeSlotErrors.start_time ? 'border-red-500' : 'border-gray-300'
                 }`}
+                aria-describedby={newTimeSlotErrors.start_time ? 'start-time-error' : undefined}
               />
               {newTimeSlotErrors.start_time && (
-                <p className="mt-1 text-sm text-red-600">{newTimeSlotErrors.start_time}</p>
+                <p id="start-time-error" className="mt-1 text-sm text-red-600">{newTimeSlotErrors.start_time}</p>
               )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="end-time-input" className="block text-sm font-medium text-gray-700 mb-1">
                 End Time *
               </label>
               <input
+                id="end-time-input"
                 type="datetime-local"
                 value={newTimeSlot.end_time}
                 onChange={(e) => onNewTimeSlotChange('end_time', e.target.value)}
                 className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                   newTimeSlotErrors.end_time ? 'border-red-500' : 'border-gray-300'
                 }`}
+                aria-describedby={newTimeSlotErrors.end_time ? 'end-time-error' : undefined}
               />
               {newTimeSlotErrors.end_time && (
-                <p className="mt-1 text-sm text-red-600">{newTimeSlotErrors.end_time}</p>
+                <p id="end-time-error" className="mt-1 text-sm text-red-600">{newTimeSlotErrors.end_time}</p>
               )}
             </div>
           </div>

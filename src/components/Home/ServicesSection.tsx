@@ -1,77 +1,145 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const services = [
   {
-    image: '/images/services/marketentry.png',
-    title: 'Market Entry Advisory',
-    description: 'Strategic guidance for entering new international markets with confidence and reduced risk.',
-    color: 'bg-blue-500'
+    image: '/images/services/erp-creation.jpg',
+    title: 'ERP Creation & Implementation',
+    description: 'Design and deploy right-sized ERP systems that streamline workflows, integrate data, and improve visibility.',
+    number: '01'
   },
   {
-    image: '/images/services/busmatch.jpg',
-    title: 'Business Matchmaking',
-    description: 'Connect with the right partners, distributors, and stakeholders in your target markets.',
-    color: 'bg-green-500'
+    image: '/images/services/website-design.jpg',
+    title: 'Website Design & Development',
+    description: 'Build modern, fast, and secure websites that convert visitors into customers and support growth.',
+    number: '02'
   },
   {
-    image: '/images/services/intertrade.jpg',
-    title: 'International Trade Missions',
-    description: 'Organized trade missions to explore opportunities and build relationships globally.',
-    color: 'bg-purple-500'
+    image: '/images/services/ai-optimization.jpg',
+    title: 'AI Optimization Strategy',
+    description: 'Identify high-impact use cases and implement practical AI to automate work and surface insights.',
+    number: '03'
   },
   {
-    image: '/images/services/stakeholders.jpg',
-    title: 'Trade Event Promotion',
-    description: 'Professional event management and promotion for maximum business impact.',
-    color: 'bg-orange-500'
+    image: '/images/services/market-entry.jpg',
+    title: 'Market Entry & FDI Facilitation',
+    description: 'Navigate regulations, partnerships, and financing to enter new markets and unlock cross-border investment.',
+    number: '04'
   },
   {
-    image: '/images/services/globalmarket.jpg',
-    title: 'Global Marketing Strategies',
-    description: 'Tailored marketing approaches for different cultures and international markets.',
-    color: 'bg-red-500'
-  },
-  {
-    image: '/images/services/culturalInt.jpg',
-    title: 'Cultural Intelligence',
-    description: 'Navigate cultural differences and business practices in international markets.',
-    color: 'bg-indigo-500'
+    image: '/images/services/project-management.jpg',
+    title: 'Program / Project Management',
+    description: 'Plan, execute, and govern complex initiatives with clear milestones, owners, and measurable outcomes.',
+    number: '05'
   }
 ];
 
 const ServicesSection: React.FC = () => {
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">
-            Our Services
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-            Comprehensive solutions for international business expansion and global trade success
-          </p>
+        {/* Header Section */}
+        <div className="grid lg:grid-cols-2 gap-16 items-start mb-24">
+          <div data-aos="fade-right">
+            <div className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-600 mb-6">
+              WHO ARE WE
+            </div>
+            <h2 className="text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight">
+              Strategic Business
+              <br />
+              <span className="font-bold">Consultancy</span>
+            </h2>
+          </div>
+
+          <div className="space-y-8" data-aos="fade-left">
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Heritage Triage is a strategic business consultancy that helps organizations
+              expand, streamline operations, and grow sustainably. In addition to business
+              advisory, FDI facilitation, branding, and project management, we build
+              practical digital foundations.
+            </p>
+
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Our mission is simple: understand each client's goals and deliver tailored
+              solutions that boost efficiency, profitability, and market reach. With a skilled
+              team and trusted partners, we support West African businesses entering the
+              Americas and American companies investing in West Africa.
+            </p>
+
+            <div className="pt-4">
+              <button className="inline-flex items-center text-gray-900 font-medium hover:text-gray-600 transition-colors group">
+                Learn More About Us
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div 
-              key={service.title}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-            >
-              <div className="mb-6">
-                <img 
-                  src={service.image} 
-                  alt={service.title} 
-                  className="w-full h-48 object-cover rounded-lg mb-4" 
-                />
-                <div className={`${service.color} h-1 w-16 rounded-full mx-auto mb-4`}></div>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+        {/* Services Grid */}
+        <div className="mb-16">
+          <div className="text-center mb-20" data-aos="fade-up">
+            <div className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-600 mb-6">
+              OUR SERVICES
             </div>
-          ))}
+            <h3 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
+              Core <span className="font-bold">Capabilities</span>
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Comprehensive solutions for digital transformation and international business expansion
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={service.title}
+                className="group cursor-pointer"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <div className="relative overflow-hidden rounded-2xl mb-6">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
+                  <div className="absolute top-6 left-6">
+                    <span className="inline-block px-3 py-1 bg-white bg-opacity-90 rounded-full text-sm font-bold text-gray-900">
+                      {service.number}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <h4 className="text-2xl font-bold text-gray-900 group-hover:text-gray-600 transition-colors">
+                    {service.title}
+                  </h4>
+                  <p className="text-gray-600 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <div className="flex items-center text-gray-900 font-medium group-hover:text-gray-600 transition-colors">
+                    <span className="mr-2">Explore Service</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="text-center pt-16 border-t border-gray-200" data-aos="fade-up">
+          <div className="flex justify-center items-center space-x-8">
+            <img
+              src="/images/heritage-logo-21.png"
+              alt="Heritage Triage"
+              className="h-12 w-auto opacity-60"
+            />
+            <div className="text-sm text-gray-500">
+              Strategic Partner for Growth & Innovation
+            </div>
+          </div>
         </div>
       </div>
     </section>
