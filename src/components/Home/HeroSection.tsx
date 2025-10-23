@@ -1,23 +1,75 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      // Optimize video loading
+      video.addEventListener('loadeddata', () => {
+        setVideoLoaded(true);
+      });
+
+      // Handle Safari-specific issues
+      video.addEventListener('canplaythrough', () => {
+        video.play().catch(console.error);
+      });
+
+      // Preload video on user interaction for mobile
+      const handleUserInteraction = () => {
+        video.load();
+        document.removeEventListener('touchstart', handleUserInteraction);
+        document.removeEventListener('click', handleUserInteraction);
+      };
+
+      document.addEventListener('touchstart', handleUserInteraction);
+      document.addEventListener('click', handleUserInteraction);
+
+      return () => {
+        document.removeEventListener('touchstart', handleUserInteraction);
+        document.removeEventListener('click', handleUserInteraction);
+      };
+    }
+  }, []);
   return (
     <section className="relative min-h-screen bg-slate-900 overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0">
+        {/* Fallback background - shows immediately while video loads */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900"></div>
+
         <video
           autoPlay
           muted
           loop
           playsInline
+          preload="metadata"
+          poster="/images/services/hero-poster.jpg"
           className="w-full h-full object-cover"
+          onLoadStart={() => console.log('Video loading started')}
+          onCanPlay={() => console.log('Video can play')}
+          style={{
+            willChange: 'transform',
+            backfaceVisibility: 'hidden',
+            perspective: '1000px'
+          }}
         >
+          {/* Multiple source formats for better browser compatibility */}
+          <source src="/images/services/hero.webm" type="video/webm" />
           <source src="/images/services/hero.mp4" type="video/mp4" />
-          {/* Fallback background for browsers that don't support video */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900"></div>
+
+          {/* Fallback for browsers that don't support video */}
+          <img
+            src="/images/services/hero-fallback.jpg"
+            alt="Strategic Consulting Background"
+            className="w-full h-full object-cover"
+          />
         </video>
+
         {/* Professional overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
