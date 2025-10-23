@@ -36,10 +36,10 @@ const services = [
 
 const ServicesSection: React.FC = () => {
   return (
-    <section id="services" className="py-32 bg-white">
+    <section id="services" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-24">
+        <div className="grid lg:grid-cols-2 gap-16 items-start mb-16">
           <div data-aos="fade-right">
             <div className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-600 mb-6">
               WHO ARE WE
@@ -60,24 +60,27 @@ const ServicesSection: React.FC = () => {
             </p>
 
             <p className="text-lg text-gray-600 leading-relaxed">
-              Our mission is simple: understand each client's goals and deliver tailored
+              Our mission is simple: understand each client&apos;s goals and deliver tailored
               solutions that boost efficiency, profitability, and market reach. With a skilled
               team and trusted partners, we support West African businesses entering the
               Americas and American companies investing in West Africa.
             </p>
 
             <div className="pt-4">
-              <button className="inline-flex items-center text-gray-900 font-medium hover:text-gray-600 transition-colors group">
+              <a
+                href="#about"
+                className="inline-flex items-center text-gray-900 font-medium hover:text-gray-600 transition-colors group"
+              >
                 Learn More About Us
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
 
         {/* Services Grid */}
         <div className="mb-16">
-          <div className="text-center mb-20" data-aos="fade-up">
+          <div className="text-center mb-12" data-aos="fade-up">
             <div className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-600 mb-6">
               OUR SERVICES
             </div>
@@ -91,9 +94,10 @@ const ServicesSection: React.FC = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <div
+              <a
                 key={service.title}
-                className="group cursor-pointer"
+                href="#contact"
+                className="group cursor-pointer block"
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
@@ -123,24 +127,12 @@ const ServicesSection: React.FC = () => {
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="text-center pt-16 border-t border-gray-200" data-aos="fade-up">
-          <div className="flex justify-center items-center space-x-8">
-            <img
-              src="/images/heritage-logo-21.png"
-              alt="Heritage Triage"
-              className="h-12 w-auto opacity-60"
-            />
-            <div className="text-sm text-gray-500">
-              Strategic Partner for Growth & Innovation
-            </div>
-          </div>
-        </div>
+
       </div>
     </section>
   );

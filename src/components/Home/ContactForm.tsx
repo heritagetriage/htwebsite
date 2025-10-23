@@ -57,9 +57,9 @@ const ContactForm: React.FC = () => {
 
   return (
     <section id="contact" className="min-h-screen bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header */}
-        <div className="text-center mb-16" data-aos="fade-up">
+        <div className="text-center mb-12" data-aos="fade-up">
           <div className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-600 mb-8">
             GET IN TOUCH
           </div>
@@ -68,180 +68,246 @@ const ContactForm: React.FC = () => {
             <br />
             <span className="font-bold">Conversation</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Ready to expand your business internationally? Share your vision with us and let's create a strategic roadmap for your global success.
           </p>
         </div>
 
-        {/* Contact Form */}
-        <div className="max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-          <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Name and Email Row */}
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      name: e.target.value,
-                    }))
-                  }
-                  className="w-full px-0 py-4 text-lg bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-900 focus:ring-0 focus:outline-none transition-colors placeholder-gray-400"
-                  placeholder="Your Name *"
-                />
-              </div>
-
-              <div>
-                <input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      email: e.target.value,
-                    }))
-                  }
-                  className="w-full px-0 py-4 text-lg bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-900 focus:ring-0 focus:outline-none transition-colors placeholder-gray-400"
-                  placeholder="Your Email *"
-                />
-              </div>
-            </div>
-
-            {/* Company and Phone Row */}
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <input
-                  type="text"
-                  value={formData.company}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      company: e.target.value,
-                    }))
-                  }
-                  className="w-full px-0 py-4 text-lg bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-900 focus:ring-0 focus:outline-none transition-colors placeholder-gray-400"
-                  placeholder="Company Name"
-                />
-              </div>
-
-              <div>
-                <input
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      phone: e.target.value,
-                    }))
-                  }
-                  className="w-full px-0 py-4 text-lg bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-900 focus:ring-0 focus:outline-none transition-colors placeholder-gray-400"
-                  placeholder="Phone Number"
-                />
-              </div>
-            </div>
-
-            {/* Message */}
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-start">
+          {/* Left Column - Company Info */}
+          <div className="space-y-16" data-aos="fade-right">
             <div>
-              <textarea
-                required
-                rows={6}
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    message: e.target.value,
-                  }))
-                }
-                className="w-full px-0 py-4 text-lg bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-900 focus:ring-0 focus:outline-none transition-colors placeholder-gray-400 resize-none"
-                placeholder="Tell us about your international expansion goals and how we can help... *"
-              />
-            </div>
-
-            {/* Submit Button */}
-            <div className="pt-8">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="group inline-flex items-center text-lg font-medium text-gray-900 hover:text-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900 mr-3"></div>
-                    Sending Message...
-                  </>
-                ) : (
-                  <>
-                    Send Message
-                    <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </>
-                )}
-              </button>
-            </div>
-          </form>
-        </div>
-
-        {/* Contact Information */}
-        <div className="mt-20 pt-16 border-t border-gray-200" data-aos="fade-up">
-          <div className="grid md:grid-cols-3 gap-12 text-center">
-            <div>
-              <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">
-                Email Us
-              </h3>
-              <a
-                href="mailto:adwoa-adubra@heritagetriage.com"
-                className="text-lg text-gray-900 hover:text-gray-600 transition-colors"
-              >
-                adwoa-adubra@heritagetriage.com
-              </a>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">
-                Call Us
-              </h3>
-              <a
-                href="tel:+14257611874"
-                className="text-lg text-gray-900 hover:text-gray-600 transition-colors"
-              >
-                +1 (425) 761-1874
-              </a>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">
-                Visit Us
-              </h3>
-              <p className="text-lg text-gray-900">
-                Sammamish, WA 98074
-                <br />
-                United States
+              <h2 className="text-3xl font-light text-gray-900 mb-6">
+                heritage<span className="font-bold">triage</span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Professional & modern, a consultancy designed to help your business stand out from the rest.
               </p>
             </div>
+
+            {/* Contact Information - Vertical Stack */}
+            <div className="space-y-12">
+              {/* Contact Us */}
+              <div>
+                <h4 className="text-gray-500 text-sm font-medium mb-6 uppercase tracking-wider">
+                  Contact us:
+                </h4>
+                <div className="space-y-4">
+                  <div>
+                    <a
+                      href="mailto:adwoa-adubra@heritagetriage.com"
+                      className="text-gray-700 hover:text-gray-900 transition-colors block text-base"
+                    >
+                      adwoa-adubra@heritagetriage.com
+                    </a>
+                  </div>
+                  <div>
+                    <a
+                      href="tel:+14257611874"
+                      className="text-gray-700 hover:text-gray-900 transition-colors block text-base"
+                    >
+                      +1 (425) 761-1874
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Our Address */}
+              <div>
+                <h4 className="text-gray-500 text-sm font-medium mb-6 uppercase tracking-wider">
+                  Our address:
+                </h4>
+                <div className="text-gray-700 space-y-2 text-base">
+                  <p>Heritage Triage LLC</p>
+                  <p>Sammamish, WA 98074</p>
+                  <p>United States</p>
+                </div>
+              </div>
+
+              {/* Our Social */}
+              <div>
+                <h4 className="text-gray-500 text-sm font-medium mb-6 uppercase tracking-wider">
+                  Our social:
+                </h4>
+                <div className="flex space-x-4">
+                  <a
+                    href="https://linkedin.com/company/heritage-triage"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors text-gray-600 text-sm font-medium"
+                  >
+                    in
+                  </a>
+                  <a
+                    href="https://twitter.com/heritagetriage"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors text-gray-600 text-sm font-medium"
+                  >
+                    tw
+                  </a>
+                  <a
+                    href="https://facebook.com/heritagetriage"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors text-gray-600 text-sm font-medium"
+                  >
+                    fb
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Business Hours */}
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-8">Business Hours</h3>
+              <div className="space-y-4 text-gray-600">
+                <div className="flex justify-between items-center py-2">
+                  <span className="font-medium">Monday - Friday</span>
+                  <span>9:00 AM - 6:00 PM PST</span>
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <span className="font-medium">Saturday</span>
+                  <span>10:00 AM - 2:00 PM PST</span>
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <span className="font-medium">Sunday</span>
+                  <span>Closed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Contact Form */}
+          <div className="bg-white" data-aos="fade-left">
+            <form onSubmit={handleSubmit} className="space-y-10">
+              {/* Name and Email Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        name: e.target.value,
+                      }))
+                    }
+                    className="w-full px-0 py-5 text-lg bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-900 focus:ring-0 focus:outline-none transition-colors placeholder-gray-400"
+                    placeholder="Your Name *"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        email: e.target.value,
+                      }))
+                    }
+                    className="w-full px-0 py-5 text-lg bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-900 focus:ring-0 focus:outline-none transition-colors placeholder-gray-400"
+                    placeholder="Your Email *"
+                  />
+                </div>
+              </div>
+
+              {/* Company and Phone Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <input
+                    type="text"
+                    value={formData.company}
+                    onChange={(e) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        company: e.target.value,
+                      }))
+                    }
+                    className="w-full px-0 py-5 text-lg bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-900 focus:ring-0 focus:outline-none transition-colors placeholder-gray-400"
+                    placeholder="Company Name"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        phone: e.target.value,
+                      }))
+                    }
+                    className="w-full px-0 py-5 text-lg bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-900 focus:ring-0 focus:outline-none transition-colors placeholder-gray-400"
+                    placeholder="Phone Number"
+                  />
+                </div>
+              </div>
+
+              {/* Message */}
+              <div className="space-y-2">
+                <textarea
+                  required
+                  rows={6}
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      message: e.target.value,
+                    }))
+                  }
+                  className="w-full px-0 py-5 text-lg bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-900 focus:ring-0 focus:outline-none transition-colors placeholder-gray-400 resize-none"
+                  placeholder="Tell us about your international expansion goals and how we can help... *"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <div className="pt-8">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="group inline-flex items-center text-lg font-medium text-gray-900 hover:text-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900 mr-3"></div>
+                      Sending Message...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
 
-        {/* Business Hours */}
-        <div className="mt-16 text-center" data-aos="fade-up">
-          <div className="inline-block bg-gray-50 rounded-2xl p-8">
-            <h3 className="text-lg font-bold text-gray-900 mb-6">Business Hours</h3>
-            <div className="space-y-2 text-gray-600">
-              <div className="flex justify-between items-center min-w-[280px]">
-                <span>Monday - Friday</span>
-                <span>9:00 AM - 6:00 PM PST</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span>Saturday</span>
-                <span>10:00 AM - 2:00 PM PST</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span>Sunday</span>
-                <span>Closed</span>
-              </div>
+        {/* Bottom Navigation */}
+        <div className="mt-20 pt-12 border-t border-gray-200">
+          <div className="flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+            <div className="flex space-x-8 mb-4 md:mb-0">
+              <a href="/services" className="hover:text-gray-900 transition-colors">Services</a>
+              <a href="/about" className="hover:text-gray-900 transition-colors">About</a>
+              <a href="/events" className="hover:text-gray-900 transition-colors">Events</a>
+              <a href="/contact" className="hover:text-gray-900 transition-colors">Contact</a>
+              <a href="/booking" className="hover:text-gray-900 transition-colors">Book Consultation</a>
             </div>
+            <div className="flex space-x-8">
+              <a href="/terms" className="hover:text-gray-900 transition-colors">Terms and conditions</a>
+              <a href="/privacy" className="hover:text-gray-900 transition-colors">Privacy policy</a>
+            </div>
+          </div>
+          <div className="text-center mt-8 text-gray-400 text-sm">
+            © 2025 Heritage Triage LLC. All rights reserved.
           </div>
         </div>
       </div>

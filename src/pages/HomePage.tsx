@@ -4,7 +4,6 @@ import 'aos/dist/aos.css';
 import HeroSection from '../components/Home/HeroSection';
 import ServicesSection from '../components/Home/ServicesSection';
 import TestimonialsSection from '../components/Home/TestimonialsSection';
-import EventsSection from '../components/Home/EventsSection';
 import AboutSection from '../components/Home/AboutSection';
 import ContactForm from '../components/Home/ContactForm';
 import Priorities from '../components/Home/Priorities';
@@ -25,7 +24,6 @@ const HomePage: React.FC = () => {
       <ServicesSection />
       <Priorities />
       <TestimonialsSection />
-      <EventsSection />
       <AboutSection />
       <ContactForm />
     </div>

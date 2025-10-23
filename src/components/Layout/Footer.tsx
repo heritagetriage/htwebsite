@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Facebook, ArrowRight } from 'lucide-react';
+import { Send, Linkedin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -14,54 +14,54 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-slate-800 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-2 gap-16 mb-16">
+      <div className="w-full px-8 sm:px-12 lg:px-16 py-20">
+        <div className="grid lg:grid-cols-2 gap-20 mb-20">
           {/* Left Column - Company Info */}
-          <div className="space-y-8">
+          <div className="space-y-12">
             <div>
-              <Link to="/" className="inline-block mb-6">
-                <div className="text-3xl font-light text-white">
+              <Link to="/" className="inline-block mb-8">
+                <div className="text-4xl font-light text-white">
                   heritage<span className="font-bold">triage</span>
                 </div>
               </Link>
-              <p className="text-slate-300 text-lg leading-relaxed max-w-md">
+              <p className="text-slate-300 text-xl leading-relaxed">
                 Professional & modern, a consultancy designed to help your business stand out from the rest.
               </p>
             </div>
 
             {/* Newsletter Signup */}
             <div>
-              <form onSubmit={handleNewsletterSubmit} className="flex max-w-md">
+              <form onSubmit={handleNewsletterSubmit} className="flex max-w-lg">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your e-mail"
-                  className="flex-1 px-4 py-3 bg-slate-700 border border-slate-600 rounded-l-lg text-white placeholder-slate-400 focus:outline-none focus:border-slate-500"
+                  className="flex-1 px-6 py-4 text-lg bg-slate-700 border border-slate-600 rounded-l-lg text-white placeholder-slate-400 focus:outline-none focus:border-slate-500"
                   required
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-slate-600 hover:bg-slate-500 border border-slate-600 rounded-r-lg transition-colors flex items-center"
+                  className="px-8 py-4 bg-slate-600 hover:bg-slate-500 border border-slate-600 rounded-r-lg transition-colors flex items-center"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-5 h-5" />
                 </button>
               </form>
             </div>
           </div>
 
           {/* Right Column - Contact Info Grid */}
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12">
             {/* Contact Us */}
             <div>
-              <h4 className="text-slate-400 text-sm font-medium mb-4 uppercase tracking-wider">
+              <h4 className="text-slate-400 text-base font-medium mb-6 uppercase tracking-wider">
                 Contact us:
               </h4>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <div>
                   <a
                     href="mailto:adwoa-adubra@heritagetriage.com"
-                    className="text-slate-300 hover:text-white transition-colors"
+                    className="text-slate-300 hover:text-white transition-colors text-base leading-relaxed block"
                   >
                     adwoa-adubra@heritagetriage.com
                   </a>
@@ -69,9 +69,9 @@ const Footer: React.FC = () => {
                 <div>
                   <a
                     href="tel:+14257611874"
-                    className="text-slate-300 hover:text-white transition-colors"
+                    className="text-slate-300 hover:text-white transition-colors text-base"
                   >
-                    +1 234 5678 9999
+                    +1 (425) 761-1874
                   </a>
                 </div>
               </div>
@@ -79,10 +79,10 @@ const Footer: React.FC = () => {
 
             {/* Our Address */}
             <div>
-              <h4 className="text-slate-400 text-sm font-medium mb-4 uppercase tracking-wider">
+              <h4 className="text-slate-400 text-base font-medium mb-6 uppercase tracking-wider">
                 Our address:
               </h4>
-              <div className="text-slate-300">
+              <div className="text-slate-300 text-base leading-relaxed space-y-1">
                 <p>Heritage Triage LLC</p>
                 <p>Sammamish, WA 98074</p>
                 <p>United States</p>
@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
 
             {/* Our Social */}
             <div>
-              <h4 className="text-slate-400 text-sm font-medium mb-4 uppercase tracking-wider">
+              <h4 className="text-slate-400 text-base font-medium mb-6 uppercase tracking-wider">
                 Our social:
               </h4>
               <div className="flex space-x-4">
@@ -99,25 +99,25 @@ const Footer: React.FC = () => {
                   href="https://linkedin.com/company/heritage-triage"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center hover:bg-slate-600 transition-colors"
+                  className="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center hover:bg-slate-600 transition-colors"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-5 h-5" />
                 </a>
                 <a
                   href="https://twitter.com/heritagetriage"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center hover:bg-slate-600 transition-colors"
+                  className="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center hover:bg-slate-600 transition-colors text-sm font-medium"
                 >
-                  <Twitter className="w-4 h-4" />
+                  tw
                 </a>
                 <a
                   href="https://facebook.com/heritagetriage"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center hover:bg-slate-600 transition-colors"
+                  className="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center hover:bg-slate-600 transition-colors text-sm font-medium"
                 >
-                  <Facebook className="w-4 h-4" />
+                  fb
                 </a>
               </div>
             </div>
@@ -125,16 +125,13 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Navigation Links */}
-        <div className="border-t border-slate-700 pt-8 mb-8">
-          <nav className="flex flex-wrap gap-8 text-slate-400">
+        <div className="border-t border-slate-700 pt-12 mb-12">
+          <nav className="flex flex-wrap gap-12 text-slate-400 text-lg">
             <Link to="/services" className="hover:text-white transition-colors">
               Services
             </Link>
             <Link to="/about" className="hover:text-white transition-colors">
               About
-            </Link>
-            <Link to="/events" className="hover:text-white transition-colors">
-              Events
             </Link>
             <Link to="/contact" className="hover:text-white transition-colors">
               Contact
@@ -146,8 +143,8 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-700 text-slate-400 text-sm">
-          <div className="flex space-x-6 mb-4 md:mb-0">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center pt-12 border-t border-slate-700 text-slate-400 text-base">
+          <div className="flex flex-wrap gap-8 mb-6 md:mb-0">
             <Link to="/terms" className="hover:text-white transition-colors">
               Terms and conditions
             </Link>
@@ -155,7 +152,7 @@ const Footer: React.FC = () => {
               Privacy policy
             </Link>
           </div>
-          <div>
+          <div className="text-right">
             © 2025 Heritage Triage LLC. All rights reserved.
           </div>
         </div>
