@@ -48,6 +48,7 @@ export interface ContactFormData {
   name: string;
   email: string;
   company?: string;
+  phone?: string;
   message: string;
   status?: string;
   notes?: string;
