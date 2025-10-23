@@ -3,31 +3,31 @@ import { ArrowRight } from 'lucide-react';
 
 const services = [
   {
-    image: '/images/services/erp-creation.jpg',
+    image: '/images/services/erp-creation.png',
     title: 'ERP Creation & Implementation',
     description: 'Design and deploy right-sized ERP systems that streamline workflows, integrate data, and improve visibility.',
     number: '01'
   },
   {
-    image: '/images/services/website-design.jpg',
+    image: '/images/services/website-design.png',
     title: 'Website Design & Development',
     description: 'Build modern, fast, and secure websites that convert visitors into customers and support growth.',
     number: '02'
   },
   {
-    image: '/images/services/ai-optimization.jpg',
+    image: '/images/services/ai-optimization.png',
     title: 'AI Optimization Strategy',
     description: 'Identify high-impact use cases and implement practical AI to automate work and surface insights.',
     number: '03'
   },
   {
-    image: '/images/services/market-entry.jpg',
+    image: '/images/services/market-entry.png',
     title: 'Market Entry & FDI Facilitation',
     description: 'Navigate regulations, partnerships, and financing to enter new markets and unlock cross-border investment.',
     number: '04'
   },
   {
-    image: '/images/services/project-management.jpg',
+    image: '/images/services/project-management.png',
     title: 'Program / Project Management',
     description: 'Plan, execute, and govern complex initiatives with clear milestones, owners, and measurable outcomes.',
     number: '05'
