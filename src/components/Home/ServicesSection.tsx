@@ -83,7 +83,7 @@ const ServicesSection: React.FC = () => {
                 <span className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium">Africa</span>
                 <span className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium">Mexico</span>
                 <span className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium">Canada</span>
-                <span className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium">Middle East</span>
+                <span className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium">Asia</span>
               </div>
             </div>
 
