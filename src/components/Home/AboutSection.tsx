@@ -65,7 +65,7 @@ const AboutSection: React.FC = () => {
 
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                Rita Asante is a global growth strategist and commercial diplomacy expert with 10+ years helping organizations expand across borders. She leads Heritage Triage LLC, a boutique consultancy that equips SMEs, investors, and public institutions to enter new markets and scale with strong digital and operational foundations.
+                Rita Asante is a global growth strategist and commercial diplomacy expert with 10+ years helping organizations expand across borders. She leads Heritage Triage LLC, a boutique consultancy that equips SMEs to enter new markets and scale with strong digital and operational foundations.
               </p>
 
               <p>

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -45,12 +46,21 @@ const Header: React.FC = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-4">
+            <button
+              onClick={() => {
+                navigate('/');
+                // Also scroll to top if already on home page
+                if (location.pathname === '/') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+              className="flex items-center space-x-4 cursor-pointer focus:outline-none hover:opacity-80 transition-opacity"
+            >
               <img src="/images/heritage-logo.jpg" alt="Heritage Triage Logo" className="h-16 w-auto" />
               <div className="text-2xl font-light text-gray-900">
                 heritage<span className="font-bold">triage</span>
               </div>
-            </Link>
+            </button>
           </div>
 
           {/* Desktop Navigation */}
