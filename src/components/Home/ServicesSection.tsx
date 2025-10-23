@@ -35,6 +35,20 @@ const services = [
 ];
 
 const ServicesSection: React.FC = () => {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      const headerHeight = 96; // Account for sticky header height (h-24 = 96px)
+      const targetPosition = targetElement.offsetTop - headerHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
   return (
     <section id="services" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,22 +67,30 @@ const ServicesSection: React.FC = () => {
 
           <div className="space-y-8" data-aos="fade-left">
             <p className="text-lg text-gray-600 leading-relaxed">
-              Heritage Triage is a strategic business consultancy that helps organizations
-              expand, streamline operations, and grow sustainably. In addition to business
-              advisory, FDI facilitation, branding, and project management, we build
-              practical digital foundations.
+              Heritage Triage is a strategic business consultancy that helps organizations enter new markets, streamline operations, and grow sustainably. Beyond business advisory and FDI facilitation, we build the digital foundations companies need to scale—pairing practical systems with clear execution.
             </p>
 
             <p className="text-lg text-gray-600 leading-relaxed">
-              Our mission is simple: understand each client&apos;s goals and deliver tailored
-              solutions that boost efficiency, profitability, and market reach. With a skilled
-              team and trusted partners, we support West African businesses entering the
-              Americas and American companies investing in West Africa.
+              Our mission is simple: understand each client&apos;s goals and deliver tailored solutions that boost efficiency, profitability, and market reach—anywhere in the world.
             </p>
+
+
+
+            {/* Target Markets */}
+            <div className="bg-gray-50 rounded-2xl p-6">
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Target Markets</h4>
+              <div className="flex flex-wrap gap-3">
+                <span className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium">Africa</span>
+                <span className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium">Mexico</span>
+                <span className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium">Canada</span>
+                <span className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium">Middle East</span>
+              </div>
+            </div>
 
             <div className="pt-4">
               <a
                 href="#about"
+                onClick={(e) => handleSmoothScroll(e, 'about')}
                 className="inline-flex items-center text-gray-900 font-medium hover:text-gray-600 transition-colors group"
               >
                 Learn More About Us
@@ -97,6 +119,7 @@ const ServicesSection: React.FC = () => {
               <a
                 key={service.title}
                 href="#contact"
+                onClick={(e) => handleSmoothScroll(e, 'contact')}
                 className="group cursor-pointer block"
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
