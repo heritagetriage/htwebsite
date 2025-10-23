@@ -35,6 +35,20 @@ const services = [
 ];
 
 const ServicesSection: React.FC = () => {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      const headerHeight = 96; // Account for sticky header height (h-24 = 96px)
+      const targetPosition = targetElement.offsetTop - headerHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
   return (
     <section id="services" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,6 +83,7 @@ const ServicesSection: React.FC = () => {
             <div className="pt-4">
               <a
                 href="#about"
+                onClick={(e) => handleSmoothScroll(e, 'about')}
                 className="inline-flex items-center text-gray-900 font-medium hover:text-gray-600 transition-colors group"
               >
                 Learn More About Us
@@ -97,6 +112,7 @@ const ServicesSection: React.FC = () => {
               <a
                 key={service.title}
                 href="#contact"
+                onClick={(e) => handleSmoothScroll(e, 'contact')}
                 className="group cursor-pointer block"
                 data-aos="fade-up"
                 data-aos-delay={index * 100}

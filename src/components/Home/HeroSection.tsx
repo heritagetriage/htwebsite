@@ -1,35 +1,56 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      const headerHeight = 96; // Account for sticky header height (h-24 = 96px)
+      const targetPosition = targetElement.offsetTop - headerHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
       // Optimize video loading
-      video.addEventListener('loadeddata', () => {
-        setVideoLoaded(true);
-      });
+      const handleLoadedData = () => setVideoLoaded(true);
 
-      // Handle Safari-specific issues
-      video.addEventListener('canplaythrough', () => {
-        video.play().catch(console.error);
-      });
+      // Handle Safari-specific issues with error handling
+      const handleCanPlayThrough = () => {
+        video.play().catch(() => {
+          // Silently handle autoplay failures (common in browsers)
+        });
+      };
+
+      video.addEventListener('loadeddata', handleLoadedData);
+      video.addEventListener('canplaythrough', handleCanPlayThrough);
 
       // Preload video on user interaction for mobile
       const handleUserInteraction = () => {
-        video.load();
+        if (video.readyState < 2) {
+          video.load();
+        }
         document.removeEventListener('touchstart', handleUserInteraction);
         document.removeEventListener('click', handleUserInteraction);
       };
 
-      document.addEventListener('touchstart', handleUserInteraction);
+      document.addEventListener('touchstart', handleUserInteraction, { passive: true });
       document.addEventListener('click', handleUserInteraction);
 
       return () => {
+        video.removeEventListener('loadeddata', handleLoadedData);
+        video.removeEventListener('canplaythrough', handleCanPlayThrough);
         document.removeEventListener('touchstart', handleUserInteraction);
         document.removeEventListener('click', handleUserInteraction);
       };
@@ -43,6 +64,7 @@ const HeroSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900"></div>
 
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
@@ -50,8 +72,6 @@ const HeroSection: React.FC = () => {
           preload="metadata"
           poster="/images/services/hero-poster.jpg"
           className="w-full h-full object-cover"
-          onLoadStart={() => console.log('Video loading started')}
-          onCanPlay={() => console.log('Video can play')}
           style={{
             willChange: 'transform',
             backfaceVisibility: 'hidden',
@@ -101,18 +121,20 @@ const HeroSection: React.FC = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="600">
-            <Link
-              to="#contact"
+            <a
+              href="#contact"
+              onClick={(e) => handleSmoothScroll(e, 'contact')}
               className="inline-flex items-center justify-center bg-white text-slate-900 px-10 py-5 rounded-full text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg"
             >
               Get Started Today
               <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
+            </a>
 
             <a
               href="#services"
+              onClick={(e) => handleSmoothScroll(e, 'services')}
               className="inline-flex items-center justify-center border-2 border-white/30 text-white px-10 py-5 rounded-full text-lg font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
             >
               Our Services
@@ -123,10 +145,23 @@ const HeroSection: React.FC = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white z-10" data-aos="fade-up" data-aos-delay="800">
-        <div className="flex flex-col items-center cursor-pointer group">
+        <button
+          onClick={() => {
+            const targetElement = document.getElementById('services');
+            if (targetElement) {
+              const headerHeight = 96;
+              const targetPosition = targetElement.offsetTop - headerHeight;
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            }
+          }}
+          className="flex flex-col items-center cursor-pointer group focus:outline-none"
+        >
           <span className="text-sm mb-2 opacity-70 group-hover:opacity-100 transition-opacity">Scroll to explore</span>
           <ChevronDown className="w-6 h-6 animate-bounce opacity-70 group-hover:opacity-100 transition-opacity" />
-        </div>
+        </button>
       </div>
     </section>
   );

@@ -2,6 +2,21 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      const headerHeight = 96; // Account for sticky header height (h-24 = 96px)
+      const targetPosition = targetElement.offsetTop - headerHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="about" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,6 +98,7 @@ const AboutSection: React.FC = () => {
 
             <a
               href="#contact"
+              onClick={(e) => handleSmoothScroll(e, 'contact')}
               className="inline-flex items-center text-gray-900 font-medium hover:text-gray-600 transition-colors group"
             >
               Contact Rita
