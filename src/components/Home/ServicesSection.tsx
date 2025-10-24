@@ -89,11 +89,11 @@ const ServicesSection: React.FC = () => {
 
             <div className="pt-4">
               <a
-                href="#about"
-                onClick={(e) => handleSmoothScroll(e, 'about')}
+                href="#contact"
+                onClick={(e) => handleSmoothScroll(e, 'contact')}
                 className="inline-flex items-center text-gray-900 font-medium hover:text-gray-600 transition-colors group"
               >
-                Learn More About Us
+                Get in Touch
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
