@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 const services = [
@@ -6,31 +7,36 @@ const services = [
     image: '/images/services/market-entry.png',
     title: 'Market Entry & FDI Facilitation',
     description: 'Navigate regulations, partnerships, and financing to enter new markets and unlock cross-border investment.',
-    number: '01'
+    number: '01',
+    href: '/services/market-entry'
   },
   {
     image: '/images/services/project-management.png',
     title: 'Program / Project Management',
     description: 'Plan, execute, and govern complex initiatives with clear milestones, owners, and measurable outcomes.',
-    number: '02'
+    number: '02',
+    href: '/services/project-management'
   },
   {
     image: '/images/services/erp-creation.png',
     title: 'Digital Transformation Services',
     description: 'Design and deploy right-sized ERP systems that streamline workflows, integrate data, and improve visibility.',
-    number: '03'
+    number: '03',
+    href: '/services/digital-strategy'
   },
   {
     image: '/images/services/website-design.png',
     title: 'Website Design & Development',
     description: 'Build modern, fast, and secure websites that convert visitors into customers and support growth.',
-    number: '04'
+    number: '04',
+    href: '/services/content-strategy'
   },
   {
     image: '/images/services/ai-optimization.png',
     title: 'AI Optimization Services',
     description: 'Identify high-impact use cases and implement practical AI to automate work and surface insights.',
-    number: '05'
+    number: '05',
+    href: '/services/ai-optimization'
   }
 ];
 
@@ -101,24 +107,10 @@ const ServicesSection: React.FC = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {services.map((service, index) => {
-              const isProjectManagement = service.title === 'Program / Project Management';
-              const isMarketEntry = service.title === 'Market Entry & FDI Facilitation';
-              const isDigitalTransformation = service.title === 'Digital Transformation Services';
-              const isWebsiteDesign = service.title === 'Website Design & Development';
-              const isAIOptimization = service.title === 'AI Optimization Services';
-
-              let href = '/contact';
-              if (isProjectManagement) href = '/project-management';
-              if (isMarketEntry) href = '/market-entry';
-              if (isDigitalTransformation) href = '/digital-transformation';
-              if (isWebsiteDesign) href = '/website-design';
-              if (isAIOptimization) href = '/ai-optimization';
-
               return (
-                <a
+                <div
                   key={service.title}
-                  href={href}
-                  className="group cursor-pointer block"
+                  className="group"
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
                 >
@@ -143,14 +135,15 @@ const ServicesSection: React.FC = () => {
                     <p className="text-gray-600 leading-relaxed">
                       {service.description}
                     </p>
-                    <div className="flex items-center text-blue-600 font-medium group-hover:text-blue-700 transition-colors">
-                      <span className="mr-2">
-                        {isProjectManagement || isMarketEntry || isDigitalTransformation || isWebsiteDesign || isAIOptimization ? 'Learn More' : 'Explore Service'}
-                      </span>
+                    <Link
+                      to={service.href}
+                      className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors group"
+                    >
+                      <span className="mr-2">Learn More</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                    </Link>
                   </div>
-                </a>
+                </div>
               );
             })}
           </div>
