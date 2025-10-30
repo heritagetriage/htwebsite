@@ -6,11 +6,7 @@ import Footer from '../components/Layout/Footer';
 import Sidebar from '../components/Admin/Sidebar';
 import HomePage from '../pages/HomePage';
 import BookingPage from '../pages/BookingPage';
-import ProjectManagementPage from '../pages/ProjectManagementPage';
-import MarketEntryPage from '../pages/MarketEntryPage';
-import DigitalTransformationPage from '../pages/DigitalTransformationPage';
-import WebsiteDesignPage from '../pages/WebsiteDesignPage';
-import AIOptimizationPage from '../pages/AIOptimizationPage';
+import MarketInsightsPage from '../pages/MarketInsightsPage';
 import ContactPage from '../pages/ContactPage';
 import AdminLoginPage from '../pages/AdminLoginPage';
 import AdminDashboard from '../pages/AdminDashboard';
@@ -20,6 +16,16 @@ import AdminBookingsPage from '../pages/AdminBookingsPage';
 import AdminContactsPage from '../pages/AdminContactsPage';
 import AdminSettingsPage from '../pages/AdminSettingsPage';
 import AdminDelegatesPage from '../pages/AdminDelegatesPage';
+import MarketEntryPage from '../pages/MarketEntryPage';
+import ProjectManagementPage from '../pages/ProjectManagementPage';
+import CrisisCommunicationsPage from '../pages/CrisisCommunicationsPage';
+import DigitalStrategyPage from '../pages/DigitalStrategyPage';
+import ContentStrategyPage from '../pages/ContentStrategyPage';
+import ClientCentricSolutionsPage from '../pages/ClientCentricSolutionsPage';
+import InnovationEfficiencyPage from '../pages/InnovationEfficiencyPage';
+import DataDrivenInsightsPage from '../pages/DataDrivenInsightsPage';
+import ComplianceRiskPage from '../pages/ComplianceRiskPage';
+import LongTermPartnershipsPage from '../pages/LongTermPartnershipsPage';
 
 // Layout wrapper for public pages
 const PublicLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -62,39 +68,77 @@ const AppRoutes: React.FC = () => {
         </PublicLayout>
       } />
 
-      <Route path="/project-management" element={
+      <Route path="/market-insights" element={
         <PublicLayout>
-          <ProjectManagementPage />
-        </PublicLayout>
-      } />
-
-      <Route path="/market-entry" element={
-        <PublicLayout>
-          <MarketEntryPage />
-        </PublicLayout>
-      } />
-
-      <Route path="/digital-transformation" element={
-        <PublicLayout>
-          <DigitalTransformationPage />
-        </PublicLayout>
-      } />
-
-      <Route path="/website-design" element={
-        <PublicLayout>
-          <WebsiteDesignPage />
-        </PublicLayout>
-      } />
-
-      <Route path="/ai-optimization" element={
-        <PublicLayout>
-          <AIOptimizationPage />
+          <MarketInsightsPage />
         </PublicLayout>
       } />
 
       <Route path="/contact" element={
         <PublicLayout>
           <ContactPage />
+        </PublicLayout>
+      } />
+
+      {/* Service Routes */}
+      <Route path="/services/market-entry" element={
+        <PublicLayout>
+          <MarketEntryPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/services/project-management" element={
+        <PublicLayout>
+          <ProjectManagementPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/services/crisis-communications" element={
+        <PublicLayout>
+          <CrisisCommunicationsPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/services/digital-strategy" element={
+        <PublicLayout>
+          <DigitalStrategyPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/services/content-strategy" element={
+        <PublicLayout>
+          <ContentStrategyPage />
+        </PublicLayout>
+      } />
+
+      {/* Strategic Focus Routes */}
+      <Route path="/strategic-focus/client-centric-solutions" element={
+        <PublicLayout>
+          <ClientCentricSolutionsPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/strategic-focus/innovation-efficiency" element={
+        <PublicLayout>
+          <InnovationEfficiencyPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/strategic-focus/data-driven-insights" element={
+        <PublicLayout>
+          <DataDrivenInsightsPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/strategic-focus/compliance-risk" element={
+        <PublicLayout>
+          <ComplianceRiskPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/strategic-focus/long-term-partnerships" element={
+        <PublicLayout>
+          <LongTermPartnershipsPage />
         </PublicLayout>
       } />
 

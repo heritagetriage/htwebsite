@@ -57,7 +57,7 @@ const HeroSection: React.FC = () => {
     }
   }, []);
   return (
-    <section className="relative min-h-screen bg-slate-900 overflow-hidden">
+    <section id="hero" className="relative min-h-screen bg-slate-900 overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0">
         {/* Fallback background - shows immediately while video loads */}
