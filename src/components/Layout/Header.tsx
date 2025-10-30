@@ -33,8 +33,8 @@ const Header: React.FC = () => {
       href: '/services/content-strategy'
     },
     {
-      title: 'AI Optimization Services',
-      href: '/services/crisis-communications'
+      title: 'AI Optimization Strategy',
+      href: '/services/ai-optimization'
     }
   ];
 

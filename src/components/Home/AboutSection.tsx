@@ -153,25 +153,7 @@ const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-aos="fade-up">
-          <div>
-            <div className="text-4xl font-bold text-gray-900 mb-2">500+</div>
-            <div className="text-gray-600">Companies Advised</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-gray-900 mb-2">3</div>
-            <div className="text-gray-600">Continents</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-gray-900 mb-2">10+</div>
-            <div className="text-gray-600">Years Experience</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-gray-900 mb-2">2025</div>
-            <div className="text-gray-600">EMBA Graduate</div>
-          </div>
-        </div>
+
       </div>
     </section>
   );

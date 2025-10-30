@@ -18,7 +18,7 @@ import AdminSettingsPage from '../pages/AdminSettingsPage';
 import AdminDelegatesPage from '../pages/AdminDelegatesPage';
 import MarketEntryPage from '../pages/MarketEntryPage';
 import ProjectManagementPage from '../pages/ProjectManagementPage';
-import CrisisCommunicationsPage from '../pages/CrisisCommunicationsPage';
+import AIOptimizationPage from '../pages/AIOptimizationPage';
 import DigitalStrategyPage from '../pages/DigitalStrategyPage';
 import ContentStrategyPage from '../pages/ContentStrategyPage';
 import ClientCentricSolutionsPage from '../pages/ClientCentricSolutionsPage';
@@ -93,9 +93,9 @@ const AppRoutes: React.FC = () => {
         </PublicLayout>
       } />
 
-      <Route path="/services/crisis-communications" element={
+      <Route path="/services/ai-optimization" element={
         <PublicLayout>
-          <CrisisCommunicationsPage />
+          <AIOptimizationPage />
         </PublicLayout>
       } />
 
