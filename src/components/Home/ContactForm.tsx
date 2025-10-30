@@ -95,7 +95,7 @@ const ContactForm: React.FC = () => {
                 heritage<span className="font-bold">triage</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Professional & modern, a consultancy designed to help your business stand out from the rest.
+                Strategic Consulting For Global Growth. Expert guidance to navigate international markets and regulatory challenges.
               </p>
             </div>
 

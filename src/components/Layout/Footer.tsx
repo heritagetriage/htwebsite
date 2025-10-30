@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
                 </div>
               </Link>
               <p className="text-slate-300 text-xl leading-relaxed">
-                Professional & modern, a consultancy designed to help your business stand out from the rest.
+                Strategic Consulting For Global Growth. Expert guidance to navigate international markets and regulatory challenges.
               </p>
             </div>
 
