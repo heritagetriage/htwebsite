@@ -11,8 +11,8 @@ const Header: React.FC = () => {
     { name: 'Home', href: '#hero' },
     { name: 'Services', href: '#services' },
     { name: 'Strategic Focus', href: '#priorities' },
+    { name: 'Industries', href: '/industries' },
     { name: 'Market Insights', href: '/market-insights' },
-    // { name: 'Contact', href: '/contact' },
   ];
 
   const services = [
@@ -111,7 +111,8 @@ const Header: React.FC = () => {
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50 border-b border-blue-100">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex items-center h-24">
+          {/* Logo - Far Left */}
           <div className="flex items-center">
             <button
               onClick={() => {
@@ -130,8 +131,8 @@ const Header: React.FC = () => {
             </button>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:block">
+          {/* Desktop Navigation - Center */}
+          <div className="hidden lg:flex flex-1 justify-center">
             <div className="flex items-center space-x-8">
               {navigation.map((item) => {
                 if (item.name === 'Services') {
@@ -245,23 +246,26 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          <div className="hidden lg:block">
-            <a
-              href="/contact"
-              className="bg-blue-600 text-white px-8 py-3 rounded-full text-xl font-medium hover:bg-blue-700 transition-colors duration-200 shadow-lg"
-            >
-              Get in Touch
-            </a>
-          </div>
+          {/* Get in Touch Button - Far Right */}
+          <div className="flex items-center">
+            <div className="hidden lg:block">
+              <a
+                href="/contact"
+                className="bg-blue-600 text-white px-8 py-3 rounded-full text-xl font-medium hover:bg-blue-700 transition-colors duration-200 shadow-lg"
+              >
+                Get in Touch
+              </a>
+            </div>
 
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900 p-2"
-            >
-              {isMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
-            </button>
+            {/* Mobile menu button */}
+            <div className="lg:hidden ml-4">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900 p-2"
+              >
+                {isMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+              </button>
+            </div>
           </div>
         </div>
 
