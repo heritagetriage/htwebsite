@@ -21,6 +21,11 @@ import ProjectManagementPage from '../pages/ProjectManagementPage';
 import CrisisCommunicationsPage from '../pages/CrisisCommunicationsPage';
 import DigitalStrategyPage from '../pages/DigitalStrategyPage';
 import ContentStrategyPage from '../pages/ContentStrategyPage';
+import ClientCentricSolutionsPage from '../pages/ClientCentricSolutionsPage';
+import InnovationEfficiencyPage from '../pages/InnovationEfficiencyPage';
+import DataDrivenInsightsPage from '../pages/DataDrivenInsightsPage';
+import ComplianceRiskPage from '../pages/ComplianceRiskPage';
+import LongTermPartnershipsPage from '../pages/LongTermPartnershipsPage';
 
 // Layout wrapper for public pages
 const PublicLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -103,6 +108,37 @@ const AppRoutes: React.FC = () => {
       <Route path="/services/content-strategy" element={
         <PublicLayout>
           <ContentStrategyPage />
+        </PublicLayout>
+      } />
+
+      {/* Strategic Focus Routes */}
+      <Route path="/strategic-focus/client-centric-solutions" element={
+        <PublicLayout>
+          <ClientCentricSolutionsPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/strategic-focus/innovation-efficiency" element={
+        <PublicLayout>
+          <InnovationEfficiencyPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/strategic-focus/data-driven-insights" element={
+        <PublicLayout>
+          <DataDrivenInsightsPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/strategic-focus/compliance-risk" element={
+        <PublicLayout>
+          <ComplianceRiskPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/strategic-focus/long-term-partnerships" element={
+        <PublicLayout>
+          <LongTermPartnershipsPage />
         </PublicLayout>
       } />
 

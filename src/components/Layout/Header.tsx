@@ -38,6 +38,29 @@ const Header: React.FC = () => {
     }
   ];
 
+  const strategicFocus = [
+    {
+      title: 'Client-Centric Solutions',
+      href: '/strategic-focus/client-centric-solutions'
+    },
+    {
+      title: 'Innovation & Efficiency',
+      href: '/strategic-focus/innovation-efficiency'
+    },
+    {
+      title: 'Data-Driven Insights',
+      href: '/strategic-focus/data-driven-insights'
+    },
+    {
+      title: 'Compliance & Risk Mitigation',
+      href: '/strategic-focus/compliance-risk'
+    },
+    {
+      title: 'Long-Term Partnerships',
+      href: '/strategic-focus/long-term-partnerships'
+    }
+  ];
+
   const isActive = (href: string) => {
     if (href === '/') {
       return location.pathname === '/';
@@ -149,6 +172,44 @@ const Header: React.FC = () => {
                   );
                 }
 
+                if (item.name === 'Strategic Focus') {
+                  return (
+                    <div
+                      key={item.name}
+                      className="relative group"
+                    >
+                      <a
+                        href={item.href}
+                        onClick={(e) => handleSmoothScroll(e, item.href)}
+                        className={`text-xl font-medium transition-colors duration-200 flex items-center ${isActive(item.href)
+                          ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
+                          : 'text-gray-700 hover:text-blue-600'
+                          }`}
+                      >
+                        {item.name}
+                        <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </a>
+
+                      {/* Strategic Focus Dropdown */}
+                      <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-blue-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        {strategicFocus.map((focus, index) => (
+                          <Link
+                            key={index}
+                            to={focus.href}
+                            className="block px-4 py-2 hover:bg-blue-50 transition-colors duration-200"
+                          >
+                            <div className="text-base font-medium text-gray-800 hover:text-blue-600 transition-colors">
+                              {focus.title}
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                }
+
                 // Handle different types of links
                 if (item.href === '/' || item.href.startsWith('/')) {
                   // Use Link for page navigation
@@ -234,6 +295,38 @@ const Header: React.FC = () => {
                             className="block text-base text-gray-600 hover:text-gray-900 transition-colors duration-200"
                           >
                             {service.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                }
+
+                if (item.name === 'Strategic Focus') {
+                  return (
+                    <div key={item.name} className="space-y-2">
+                      <a
+                        href={item.href}
+                        onClick={(e) => {
+                          handleSmoothScroll(e, item.href);
+                          setIsMenuOpen(false);
+                        }}
+                        className={`block text-lg font-medium transition-colors duration-200 ${isActive(item.href)
+                          ? 'text-gray-900'
+                          : 'text-gray-600 hover:text-gray-900'
+                          }`}
+                      >
+                        {item.name}
+                      </a>
+                      <div className="pl-4 space-y-2">
+                        {strategicFocus.map((focus, index) => (
+                          <Link
+                            key={index}
+                            to={focus.href}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="block text-base text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                          >
+                            {focus.title}
                           </Link>
                         ))}
                       </div>
