@@ -77,7 +77,7 @@ const WebsiteDesignPage: React.FC = () => {
                         {/* Left Column - Image */}
                         <div className="relative" data-aos="fade-right">
                             <img
-                                src="/images/services/website-design-hero.jpg"
+                                src="/images/services/website-design.png"
                                 alt="Website Design & Development"
                                 className="w-full rounded-2xl shadow-2xl"
                             />

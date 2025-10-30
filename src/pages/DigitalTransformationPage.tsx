@@ -76,7 +76,7 @@ const DigitalTransformationPage: React.FC = () => {
                         {/* Left Column - Image */}
                         <div className="relative" data-aos="fade-right">
                             <img
-                                src="/images/services/digital-transformation-hero.jpg"
+                                src="/images/services/erp-creation.png"
                                 alt="Digital Transformation Services"
                                 className="w-full rounded-2xl shadow-2xl"
                             />

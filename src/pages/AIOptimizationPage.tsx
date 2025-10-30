@@ -72,7 +72,7 @@ const AIOptimizationPage: React.FC = () => {
                         {/* Left Column - Image */}
                         <div className="relative" data-aos="fade-right">
                             <img
-                                src="/images/services/ai-optimization-hero.jpg"
+                                src="/images/services/ai-optimization.png"
                                 alt="AI Optimization Strategy"
                                 className="w-full rounded-2xl shadow-2xl"
                             />

@@ -74,7 +74,7 @@ const MarketEntryPage: React.FC = () => {
                         {/* Left Column - Image */}
                         <div className="relative" data-aos="fade-right">
                             <img
-                                src="/images/services/market-entry-hero.jpg"
+                                src="/images/services/market-entry.png"
                                 alt="Market Entry & FDI Facilitation"
                                 className="w-full rounded-2xl shadow-2xl"
                             />
