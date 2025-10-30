@@ -16,6 +16,11 @@ import AdminBookingsPage from '../pages/AdminBookingsPage';
 import AdminContactsPage from '../pages/AdminContactsPage';
 import AdminSettingsPage from '../pages/AdminSettingsPage';
 import AdminDelegatesPage from '../pages/AdminDelegatesPage';
+import MarketEntryPage from '../pages/MarketEntryPage';
+import ProjectManagementPage from '../pages/ProjectManagementPage';
+import CrisisCommunicationsPage from '../pages/CrisisCommunicationsPage';
+import DigitalStrategyPage from '../pages/DigitalStrategyPage';
+import ContentStrategyPage from '../pages/ContentStrategyPage';
 
 // Layout wrapper for public pages
 const PublicLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -67,6 +72,37 @@ const AppRoutes: React.FC = () => {
       <Route path="/contact" element={
         <PublicLayout>
           <ContactPage />
+        </PublicLayout>
+      } />
+
+      {/* Service Routes */}
+      <Route path="/services/market-entry" element={
+        <PublicLayout>
+          <MarketEntryPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/services/project-management" element={
+        <PublicLayout>
+          <ProjectManagementPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/services/crisis-communications" element={
+        <PublicLayout>
+          <CrisisCommunicationsPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/services/digital-strategy" element={
+        <PublicLayout>
+          <DigitalStrategyPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/services/content-strategy" element={
+        <PublicLayout>
+          <ContentStrategyPage />
         </PublicLayout>
       } />
 

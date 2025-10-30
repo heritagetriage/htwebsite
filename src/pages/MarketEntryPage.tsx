@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { ArrowRight, Target, Users, Globe, TrendingUp, MapPin, BarChart } from 'lucide-react';
+import { ArrowRight, Globe, TrendingUp, Users, MapPin, Briefcase, CheckCircle } from 'lucide-react';
 
 const MarketEntryPage: React.FC = () => {
     useEffect(() => {
@@ -15,44 +15,51 @@ const MarketEntryPage: React.FC = () => {
 
     const services = [
         {
-            icon: BarChart,
-            title: 'Market assessment and target selection',
-            description: 'We help you identify where the real opportunities lie by analyzing demand, competition, and the regulatory landscape.'
-        },
-        {
-            icon: Target,
-            title: 'Entry strategy and go-to-market roadmap',
-            description: 'We turn insights into action with a clear plan for positioning, pricing, and channel strategy.'
-        },
-        {
-            icon: Users,
-            title: 'Partner identification and matchmaking',
-            description: 'Through our established networks, we connect you with trusted distributors, agents, and local partners who share your values and goals.'
+            icon: Globe,
+            title: 'Market research & analysis',
+            description: 'Comprehensive market intelligence that identifies opportunities, assesses competition, and validates your business case for expansion.'
         },
         {
             icon: TrendingUp,
-            title: 'Investment facilitation and FDI support',
-            description: 'From government relations to site selection and incentive navigation, we guide you through every step of your investment journey.'
+            title: 'Entry strategy development',
+            description: 'Customized market entry strategies that align with your business objectives and maximize your chances of success in new markets.'
         },
         {
-            icon: Globe,
-            title: 'On-the-ground logistics and protocol',
-            description: 'Our in-country teams provide end-to-end support, from registration and customs clearance to travel, meetings, and local coordination.'
+            icon: Users,
+            title: 'Stakeholder mapping & engagement',
+            description: 'Identify and connect with key stakeholders, partners, and decision-makers who can accelerate your market entry.'
         },
         {
             icon: MapPin,
-            title: 'Performance tracking and scale-up',
-            description: 'Once launched, we help you measure success, adjust strategies, and scale sustainably across regions.'
+            title: 'Regulatory navigation',
+            description: 'Expert guidance through complex regulatory environments, ensuring compliance and smooth market entry processes.'
+        },
+        {
+            icon: Briefcase,
+            title: 'FDI facilitation',
+            description: 'End-to-end support for foreign direct investment processes, from initial planning to successful implementation.'
+        },
+        {
+            icon: CheckCircle,
+            title: 'Launch execution',
+            description: 'Coordinated launch campaigns that create market awareness and establish your presence with impact and credibility.'
         }
+    ];
+
+    const stats = [
+        { number: '50+', label: 'Markets successfully entered' },
+        { number: '95%', label: 'Client success rate' },
+        { number: '$2B+', label: 'FDI facilitated' },
+        { number: '25+', label: 'Countries served' }
     ];
 
     return (
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
-            <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+            <section className="py-20 bg-gradient-to-br from-blue-50 to-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16" data-aos="fade-up">
-                        <div className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-600 mb-6">
+                        <div className="inline-block px-4 py-2 bg-blue-100 rounded-full text-sm font-medium text-blue-600 mb-6">
                             MARKET ENTRY & FDI FACILITATION
                         </div>
                         <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight">
@@ -61,8 +68,31 @@ const MarketEntryPage: React.FC = () => {
                             <span className="font-bold">FDI Facilitation</span>
                         </h1>
                         <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                            Every successful market entry begins with a story—one that starts with vision and grows through the right partnerships.
+                            Expanding into new markets requires more than ambition—it demands strategic insight, local expertise, and flawless execution. We guide organizations through every step of market entry, from initial research to successful launch and beyond.
                         </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Stats Section */}
+            <section className="py-16 bg-gray-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid md:grid-cols-4 gap-8">
+                        {stats.map((stat, index) => (
+                            <div
+                                key={index}
+                                className="text-center"
+                                data-aos="fade-up"
+                                data-aos-delay={index * 100}
+                            >
+                                <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+                                    {stat.number}
+                                </div>
+                                <div className="text-gray-600 font-medium">
+                                    {stat.label}
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -71,96 +101,116 @@ const MarketEntryPage: React.FC = () => {
             <section className="py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-                        {/* Left Column - Image */}
                         <div className="relative" data-aos="fade-right">
                             <img
                                 src="/images/services/market-entry.png"
                                 alt="Market Entry & FDI Facilitation"
                                 className="w-full rounded-2xl shadow-2xl"
                             />
-                            <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-lg">
-                                <div className="text-center">
-                                    <div className="text-2xl font-bold text-gray-900">Africa</div>
-                                    <div className="text-sm text-gray-600">Focus Markets</div>
-                                </div>
-                            </div>
                         </div>
 
-                        {/* Right Column - Content */}
                         <div className="space-y-8" data-aos="fade-left">
                             <h2 className="text-3xl font-bold text-gray-900">
-                                Your Gateway to African Markets
+                                Your Gateway to Global Markets
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                When a company comes to us, they often have the same goal: "We know there's opportunity in Africa, but we don't know where to begin." At Heritage Triage, we make that beginning clear, structured, and successful.
+                                Every market has its unique dynamics, cultural nuances, and regulatory requirements. Our team combines deep local knowledge with global best practices to create market entry strategies that work—reducing risk, accelerating timelines, and maximizing your investment returns.
                             </p>
-                            <p className="text-lg text-gray-600 leading-relaxed">
-                                Our team bridges strategy and execution, combining local intelligence with global business experience to help you confidently expand into Africa's most promising markets; starting with Ghana and Nigeria. We handle the groundwork so your team can focus on what matters most: building relationships, growing your brand, and delivering results.
-                            </p>
+                            <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
+                                <p className="text-blue-800 font-medium">
+                                    "Success in new markets isn't about luck—it's about preparation, partnerships, and precise execution."
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Services Section */}
-                    <div className="mb-20">
-                        <div className="text-center mb-16" data-aos="fade-up">
-                            <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
-                                Our <span className="font-bold">Services</span>
-                            </h2>
-                            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                                Comprehensive market entry and FDI facilitation services
-                            </p>
-                        </div>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {services.map((service, index) => {
-                                const IconComponent = service.icon;
-                                return (
-                                    <div
-                                        key={index}
-                                        className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300"
-                                        data-aos="fade-up"
-                                        data-aos-delay={index * 100}
-                                    >
-                                        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                                            <IconComponent className="w-8 h-8 text-blue-600" />
-                                        </div>
-                                        <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                            {service.title}
-                                        </h3>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            {service.description}
-                                        </p>
+                    {/* Services Grid */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                        {services.map((service, index) => {
+                            const IconComponent = service.icon;
+                            return (
+                                <div
+                                    key={index}
+                                    className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300"
+                                    data-aos="fade-up"
+                                    data-aos-delay={index * 100}
+                                >
+                                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                                        <IconComponent className="w-8 h-8 text-blue-600" />
                                     </div>
-                                );
-                            })}
-                        </div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-4">
+                                        {service.title}
+                                    </h3>
+                                    <p className="text-gray-600 leading-relaxed">
+                                        {service.description}
+                                    </p>
+                                </div>
+                            );
+                        })}
                     </div>
 
-                    {/* Philosophy Section */}
-                    <div className="bg-gray-50 rounded-3xl p-12 mb-20" data-aos="fade-up">
-                        <div className="text-center max-w-4xl mx-auto">
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                                More Than Market Entry
+                    {/* Process Section */}
+                    <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-12 text-white mb-20" data-aos="fade-up">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-bold mb-4">
+                                Our Market Entry Process
                             </h2>
-                            <p className="text-xl text-gray-600 leading-relaxed">
-                                At Heritage Triage, we believe market entry isn't just a transaction: it's a transformation. With the right strategy, partners, and guidance, your story in Africa can be one of long-term growth and impact.
+                            <p className="text-blue-100 text-lg max-w-3xl mx-auto">
+                                A proven methodology that transforms market opportunities into business success
                             </p>
+                        </div>
+                        <div className="grid md:grid-cols-5 gap-8">
+                            <div className="text-center">
+                                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span className="text-white font-bold text-xl">1</span>
+                                </div>
+                                <h3 className="font-bold mb-2">Discover</h3>
+                                <p className="text-blue-100 text-sm">Market research and opportunity assessment</p>
+                            </div>
+                            <div className="text-center">
+                                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span className="text-white font-bold text-xl">2</span>
+                                </div>
+                                <h3 className="font-bold mb-2">Design</h3>
+                                <p className="text-blue-100 text-sm">Strategy development and planning</p>
+                            </div>
+                            <div className="text-center">
+                                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span className="text-white font-bold text-xl">3</span>
+                                </div>
+                                <h3 className="font-bold mb-2">Connect</h3>
+                                <p className="text-blue-100 text-sm">Stakeholder engagement and partnerships</p>
+                            </div>
+                            <div className="text-center">
+                                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span className="text-white font-bold text-xl">4</span>
+                                </div>
+                                <h3 className="font-bold mb-2">Deploy</h3>
+                                <p className="text-blue-100 text-sm">Implementation and launch execution</p>
+                            </div>
+                            <div className="text-center">
+                                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span className="text-white font-bold text-xl">5</span>
+                                </div>
+                                <h3 className="font-bold mb-2">Deliver</h3>
+                                <p className="text-blue-100 text-sm">Ongoing support and optimization</p>
+                            </div>
                         </div>
                     </div>
 
                     {/* CTA Section */}
-                    <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-12 text-center text-white" data-aos="fade-up">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                            Are you ready to begin yours?
+                    <div className="bg-gray-50 rounded-3xl p-12 text-center" data-aos="fade-up">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                            Ready to expand your global footprint?
                         </h2>
-                        <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                            Schedule your free 30-minute discovery call and let's build your roadmap to success together.
+                        <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                            Let's explore how we can help you enter new markets with confidence and achieve sustainable growth. Schedule a consultation to discuss your expansion goals.
                         </p>
                         <a
                             href="/contact"
-                            className="inline-flex items-center bg-white text-blue-600 px-10 py-5 rounded-full text-lg font-semibold hover:bg-blue-50 transition-all duration-300 shadow-lg"
+                            className="inline-flex items-center bg-blue-600 text-white px-10 py-5 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg"
                         >
-                            Schedule Your Discovery Call
+                            Start Your Market Entry Journey
                             <ArrowRight className="ml-3 w-5 h-5" />
                         </a>
                     </div>

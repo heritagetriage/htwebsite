@@ -10,12 +10,19 @@ const ContactForm: React.FC = () => {
     phone: "",
     message: "",
   });
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!privacyAccepted) {
+      setError('Please accept the privacy policy to continue.');
+      return;
+    }
+
     setIsSubmitting(true);
     setError(null);
 
@@ -25,6 +32,7 @@ const ContactForm: React.FC = () => {
       console.log('Contact form submitted successfully:', result);
       setIsSubmitted(true);
       setFormData({ name: "", email: "", company: "", phone: "", message: "" });
+      setPrivacyAccepted(false);
     } catch (error) {
       console.error("Contact form submission failed:", error);
       setError(error instanceof Error ? error.message : 'Failed to submit form. Please try again.');
@@ -270,6 +278,24 @@ const ContactForm: React.FC = () => {
                   className="w-full px-0 py-5 text-lg bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-900 focus:ring-0 focus:outline-none transition-colors placeholder-gray-400 resize-none"
                   placeholder="Tell us about your international expansion goals and how we can help... *"
                 />
+              </div>
+
+              {/* Privacy Policy Checkbox */}
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <input
+                    type="checkbox"
+                    id="privacy-policy"
+                    checked={privacyAccepted}
+                    onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                    className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    required
+                  />
+                  <label htmlFor="privacy-policy" className="text-sm text-gray-600 leading-relaxed">
+                    I agree to the processing of personal data and agree to the privacy policy.
+                    Heritage Triage is committed to protecting your information. Your information will be used in accordance with the applicable data privacy law, our internal policies and our privacy policy. As Heritage Triage is a global organisation, your information may be stored and processed by Heritage Triage and its affiliates in countries outside your country of residence, but wherever your information is processed, we will handle it with the same care and respect for your privacy.
+                  </label>
+                </div>
               </div>
 
               {/* Error Display */}

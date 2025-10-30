@@ -7,36 +7,34 @@ const Header: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-
-
   const navigation = [
-    { name: 'Home', href: '/' },
+    { name: 'Home', href: '#hero' },
     { name: 'Services', href: '#services' },
     { name: 'Strategic Focus', href: '#priorities' },
     { name: 'Market Insights', href: '/market-insights' },
-    { name: 'Contact', href: '/contact' },
+    // { name: 'Contact', href: '/contact' },
   ];
 
   const services = [
     {
       title: 'Market Entry & FDI Facilitation',
-      href: '/contact'
+      href: '/services/market-entry'
     },
     {
       title: 'Program / Project Management',
-      href: '/contact'
+      href: '/services/project-management'
     },
     {
       title: 'Digital Transformation Services',
-      href: '/contact'
+      href: '/services/digital-strategy'
     },
     {
       title: 'Website Design & Development',
-      href: '/contact'
+      href: '/services/content-strategy'
     },
     {
-      title: 'AI Optimization Strategy',
-      href: '/contact'
+      title: 'AI Optimization Services',
+      href: '/services/crisis-communications'
     }
   ];
 
@@ -48,20 +46,41 @@ const Header: React.FC = () => {
   };
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // Only handle hash links on the current page
-    if (href.startsWith('#') && location.pathname === '/') {
+    if (href.startsWith('#')) {
       e.preventDefault();
-      const targetId = href.substring(1);
-      const targetElement = document.getElementById(targetId);
 
-      if (targetElement) {
-        const headerHeight = 96; // Account for sticky header height (h-24 = 96px)
-        const targetPosition = targetElement.offsetTop - headerHeight;
+      // If we're not on the home page, navigate there first
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Use setTimeout to allow navigation to complete before scrolling
+        setTimeout(() => {
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
 
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
+          if (targetElement) {
+            const headerHeight = 96; // Account for sticky header height (h-24 = 96px)
+            const targetPosition = targetElement.offsetTop - headerHeight;
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
+      } else {
+        // We're already on the home page, scroll directly
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const headerHeight = 96; // Account for sticky header height (h-24 = 96px)
+          const targetPosition = targetElement.offsetTop - headerHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
       }
     }
   };
@@ -115,16 +134,15 @@ const Header: React.FC = () => {
                       {/* Services Dropdown */}
                       <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-blue-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                         {services.map((service, index) => (
-                          <a
+                          <Link
                             key={index}
-                            href={service.href}
-                            onClick={service.href.startsWith('#') ? (e) => handleSmoothScroll(e, service.href.substring(1)) : undefined}
+                            to={service.href}
                             className="block px-4 py-2 hover:bg-blue-50 transition-colors duration-200"
                           >
                             <div className="text-base font-medium text-gray-800 hover:text-blue-600 transition-colors">
                               {service.title}
                             </div>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -209,19 +227,14 @@ const Header: React.FC = () => {
                       </a>
                       <div className="pl-4 space-y-2">
                         {services.map((service, index) => (
-                          <a
+                          <Link
                             key={index}
-                            href={service.href}
-                            onClick={(e) => {
-                              if (service.href.startsWith('#')) {
-                                handleSmoothScroll(e, service.href.substring(1));
-                              }
-                              setIsMenuOpen(false);
-                            }}
+                            to={service.href}
+                            onClick={() => setIsMenuOpen(false)}
                             className="block text-base text-gray-600 hover:text-gray-900 transition-colors duration-200"
                           >
                             {service.title}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>

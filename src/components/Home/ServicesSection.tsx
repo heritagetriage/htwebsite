@@ -28,7 +28,7 @@ const services = [
   },
   {
     image: '/images/services/ai-optimization.png',
-    title: 'AI Optimization Strategy',
+    title: 'AI Optimization Services',
     description: 'Identify high-impact use cases and implement practical AI to automate work and surface insights.',
     number: '05'
   }
@@ -64,7 +64,7 @@ const ServicesSection: React.FC = () => {
 
             {/* Target Markets */}
             <div className="bg-gray-50 rounded-2xl p-6">
-              <h4 className="text-xl font-bold text-gray-900 mb-4">Target Markets</h4>
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Markets</h4>
               <div className="flex flex-wrap gap-3">
                 <span className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium">Africa</span>
                 <span className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium">Mexico</span>
@@ -105,7 +105,7 @@ const ServicesSection: React.FC = () => {
               const isMarketEntry = service.title === 'Market Entry & FDI Facilitation';
               const isDigitalTransformation = service.title === 'Digital Transformation Services';
               const isWebsiteDesign = service.title === 'Website Design & Development';
-              const isAIOptimization = service.title === 'AI Optimization Strategy';
+              const isAIOptimization = service.title === 'AI Optimization Services';
 
               let href = '/contact';
               if (isProjectManagement) href = '/project-management';
