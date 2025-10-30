@@ -47,7 +47,7 @@ const MarketEntryPage: React.FC = () => {
     ];
 
     const stats = [
-        { number: '50+', label: 'Markets successfully entered' },
+        { number: '', label: 'Markets successfully entered' },
         { number: '95%', label: 'Client success rate' },
         { number: '$2B+', label: 'FDI facilitated' },
         { number: '25+', label: 'Countries served' }

@@ -36,7 +36,7 @@ const IndustriesPage: React.FC = () => {
             icon: Zap,
             title: 'Energy',
             subtitle: 'Powering the Transition',
-            image: '/images/industries/energy.jpg',
+            image: '/images/industries/energy.jpeg',
             description: 'Energy is central to sustainable development. Emerging markets are diversifying their energy portfolios, blending renewables, natural gas, and smart-grid technologies to meet industrial and urban demand. These transitions create vast opportunities for U.S. companies in power generation, infrastructure, and clean energy solutions.',
             value: 'We help energy clients navigate policy frameworks, engage with stakeholders, and meet local-content requirements. Our support spans from feasibility assessments to full implementation, ensuring every project delivers both economic and social value.',
             color: 'yellow'

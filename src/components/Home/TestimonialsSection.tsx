@@ -123,26 +123,6 @@ const TestimonialsSection: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 text-center" data-aos="fade-up">
-          <div>
-            <div className="text-4xl font-bold text-gray-900 mb-2">98%</div>
-            <div className="text-gray-600">Client Satisfaction</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-gray-900 mb-2">500+</div>
-            <div className="text-gray-600">Projects Completed</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-gray-900 mb-2">50+</div>
-            <div className="text-gray-600">Countries Served</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-gray-900 mb-2">10+</div>
-            <div className="text-gray-600">Years Experience</div>
-          </div>
-        </div>
       </div>
     </section>
   );
