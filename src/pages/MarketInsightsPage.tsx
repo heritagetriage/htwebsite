@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ArrowRight, TrendingUp, Globe, BarChart, Users, Calendar, Eye } from 'lucide-react';
@@ -20,7 +21,8 @@ const MarketInsightsPage: React.FC = () => {
             category: 'Market Analysis',
             date: 'December 15, 2024',
             excerpt: 'Exploring the fastest-growing sectors across West Africa and emerging opportunities for international businesses.',
-            readTime: '5 min read'
+            readTime: '5 min read',
+            link: '/contact'
         },
         {
             icon: Globe,
@@ -28,7 +30,8 @@ const MarketInsightsPage: React.FC = () => {
             category: 'Regulatory Updates',
             date: 'December 10, 2024',
             excerpt: 'Latest updates on trade agreements between Africa, North America, and key regulatory changes affecting FDI.',
-            readTime: '7 min read'
+            readTime: '7 min read',
+            link: '/contact'
         },
         {
             icon: BarChart,
@@ -36,7 +39,8 @@ const MarketInsightsPage: React.FC = () => {
             category: 'Technology',
             date: 'December 5, 2024',
             excerpt: 'How Ghanaian businesses are leveraging technology to compete globally and attract foreign investment.',
-            readTime: '6 min read'
+            readTime: '6 min read',
+            link: '/contact'
         },
         {
             icon: Users,
@@ -44,7 +48,8 @@ const MarketInsightsPage: React.FC = () => {
             category: 'Business Strategy',
             date: 'November 28, 2024',
             excerpt: 'Best practices for establishing lasting business relationships in emerging African markets.',
-            readTime: '4 min read'
+            readTime: '4 min read',
+            link: '/contact'
         }
     ];
 
@@ -87,8 +92,8 @@ const MarketInsightsPage: React.FC = () => {
                             <button
                                 key={index}
                                 className={`px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 ${index === 0
-                                        ? 'bg-blue-600 text-white'
-                                        : 'bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-600'
+                                    ? 'bg-blue-600 text-white'
+                                    : 'bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-600'
                                     }`}
                             >
                                 {category}
@@ -116,10 +121,10 @@ const MarketInsightsPage: React.FC = () => {
                                     <span>10 min read</span>
                                 </div>
                                 <a
-                                    href="#"
+                                    href="/contact"
                                     className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-50 transition-all duration-300 shadow-lg"
                                 >
-                                    Read Full Report
+                                    Request Full Report
                                     <ArrowRight className="ml-3 w-5 h-5" />
                                 </a>
                             </div>
@@ -143,9 +148,10 @@ const MarketInsightsPage: React.FC = () => {
                             {insights.map((insight, index) => {
                                 const IconComponent = insight.icon;
                                 return (
-                                    <article
+                                    <Link
                                         key={index}
-                                        className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer"
+                                        to={insight.link}
+                                        className="block bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer"
                                         data-aos="fade-up"
                                         data-aos-delay={index * 100}
                                     >
@@ -185,7 +191,7 @@ const MarketInsightsPage: React.FC = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </article>
+                                    </Link>
                                 );
                             })}
                         </div>

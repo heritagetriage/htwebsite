@@ -26,6 +26,7 @@ import InnovationEfficiencyPage from '../pages/InnovationEfficiencyPage';
 import DataDrivenInsightsPage from '../pages/DataDrivenInsightsPage';
 import ComplianceRiskPage from '../pages/ComplianceRiskPage';
 import LongTermPartnershipsPage from '../pages/LongTermPartnershipsPage';
+import IndustriesPage from '../pages/IndustriesPage';
 
 // Layout wrapper for public pages
 const PublicLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -77,6 +78,12 @@ const AppRoutes: React.FC = () => {
       <Route path="/contact" element={
         <PublicLayout>
           <ContactPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/industries" element={
+        <PublicLayout>
+          <IndustriesPage />
         </PublicLayout>
       } />
 
