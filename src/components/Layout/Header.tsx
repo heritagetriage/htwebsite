@@ -7,35 +7,37 @@ const Header: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const services = [
 
-    {
-      title: 'Market Entry & FDI Facilitation',
-      href: '/market-entry'
-    },
-    {
-      title: 'Program / Project Management',
-      href: '/project-management'
-    },
-    {
-      title: 'Digital Transformation Services',
-      href: '/digital-transformation'
-    },
-    {
-      title: 'Website Design & Development',
-      href: '/website-design'
-    },
-    {
-      title: 'AI Optimization Strategy',
-      href: '/ai-optimization'
-    },
-  ];
 
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '#services' },
     { name: 'Strategic Focus', href: '#priorities' },
+    { name: 'Market Insights', href: '/market-insights' },
     { name: 'Contact', href: '/contact' },
+  ];
+
+  const services = [
+    {
+      title: 'Market Entry & FDI Facilitation',
+      href: '/contact'
+    },
+    {
+      title: 'Program / Project Management',
+      href: '/contact'
+    },
+    {
+      title: 'Digital Transformation Services',
+      href: '/contact'
+    },
+    {
+      title: 'Website Design & Development',
+      href: '/contact'
+    },
+    {
+      title: 'AI Optimization Strategy',
+      href: '/contact'
+    }
   ];
 
   const isActive = (href: string) => {
@@ -129,30 +131,37 @@ const Header: React.FC = () => {
                   );
                 }
 
-                return item.href === '/' ? (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`text-xl font-medium transition-colors duration-200 ${isActive(item.href)
-                      ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
-                      : 'text-gray-700 hover:text-blue-600'
-                      }`}
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => handleSmoothScroll(e, item.href)}
-                    className={`text-xl font-medium transition-colors duration-200 ${isActive(item.href)
-                      ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
-                      : 'text-gray-700 hover:text-blue-600'
-                      }`}
-                  >
-                    {item.name}
-                  </a>
-                );
+                // Handle different types of links
+                if (item.href === '/' || item.href.startsWith('/')) {
+                  // Use Link for page navigation
+                  return (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`text-xl font-medium transition-colors duration-200 ${isActive(item.href)
+                        ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
+                        : 'text-gray-700 hover:text-blue-600'
+                        }`}
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                } else {
+                  // Use anchor with smooth scroll for hash links
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => handleSmoothScroll(e, item.href)}
+                      className={`text-xl font-medium transition-colors duration-200 ${isActive(item.href)
+                        ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
+                        : 'text-gray-700 hover:text-blue-600'
+                        }`}
+                    >
+                      {item.name}
+                    </a>
+                  );
+                }
               })}
             </div>
           </div>
@@ -219,34 +228,41 @@ const Header: React.FC = () => {
                   );
                 }
 
-                return item.href === '/' ? (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`block text-lg font-medium transition-colors duration-200 ${isActive(item.href)
-                      ? 'text-gray-900'
-                      : 'text-gray-600 hover:text-gray-900'
-                      }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => {
-                      handleSmoothScroll(e, item.href);
-                      setIsMenuOpen(false);
-                    }}
-                    className={`block text-lg font-medium transition-colors duration-200 ${isActive(item.href)
-                      ? 'text-gray-900'
-                      : 'text-gray-600 hover:text-gray-900'
-                      }`}
-                  >
-                    {item.name}
-                  </a>
-                );
+                // Handle different types of links for mobile
+                if (item.href === '/' || item.href.startsWith('/')) {
+                  // Use Link for page navigation
+                  return (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`block text-lg font-medium transition-colors duration-200 ${isActive(item.href)
+                        ? 'text-gray-900'
+                        : 'text-gray-600 hover:text-gray-900'
+                        }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                } else {
+                  // Use anchor with smooth scroll for hash links
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => {
+                        handleSmoothScroll(e, item.href);
+                        setIsMenuOpen(false);
+                      }}
+                      className={`block text-lg font-medium transition-colors duration-200 ${isActive(item.href)
+                        ? 'text-gray-900'
+                        : 'text-gray-600 hover:text-gray-900'
+                        }`}
+                    >
+                      {item.name}
+                    </a>
+                  );
+                }
               })}
               <div className="pt-4">
                 <a

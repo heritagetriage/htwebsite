@@ -6,11 +6,7 @@ import Footer from '../components/Layout/Footer';
 import Sidebar from '../components/Admin/Sidebar';
 import HomePage from '../pages/HomePage';
 import BookingPage from '../pages/BookingPage';
-import ProjectManagementPage from '../pages/ProjectManagementPage';
-import MarketEntryPage from '../pages/MarketEntryPage';
-import DigitalTransformationPage from '../pages/DigitalTransformationPage';
-import WebsiteDesignPage from '../pages/WebsiteDesignPage';
-import AIOptimizationPage from '../pages/AIOptimizationPage';
+import MarketInsightsPage from '../pages/MarketInsightsPage';
 import ContactPage from '../pages/ContactPage';
 import AdminLoginPage from '../pages/AdminLoginPage';
 import AdminDashboard from '../pages/AdminDashboard';
@@ -62,33 +58,9 @@ const AppRoutes: React.FC = () => {
         </PublicLayout>
       } />
 
-      <Route path="/project-management" element={
+      <Route path="/market-insights" element={
         <PublicLayout>
-          <ProjectManagementPage />
-        </PublicLayout>
-      } />
-
-      <Route path="/market-entry" element={
-        <PublicLayout>
-          <MarketEntryPage />
-        </PublicLayout>
-      } />
-
-      <Route path="/digital-transformation" element={
-        <PublicLayout>
-          <DigitalTransformationPage />
-        </PublicLayout>
-      } />
-
-      <Route path="/website-design" element={
-        <PublicLayout>
-          <WebsiteDesignPage />
-        </PublicLayout>
-      } />
-
-      <Route path="/ai-optimization" element={
-        <PublicLayout>
-          <AIOptimizationPage />
+          <MarketInsightsPage />
         </PublicLayout>
       } />
 
