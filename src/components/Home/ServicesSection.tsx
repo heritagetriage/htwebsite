@@ -3,52 +3,38 @@ import { ArrowRight } from 'lucide-react';
 
 const services = [
   {
-    image: '/images/services/erp-creation.png',
-    title: 'ERP Creation & Implementation',
-    description: 'Design and deploy right-sized ERP systems that streamline workflows, integrate data, and improve visibility.',
-    number: '01'
-  },
-  {
-    image: '/images/services/website-design.png',
-    title: 'Website Design & Development',
-    description: 'Build modern, fast, and secure websites that convert visitors into customers and support growth.',
-    number: '02'
-  },
-  {
-    image: '/images/services/ai-optimization.png',
-    title: 'AI Optimization Strategy',
-    description: 'Identify high-impact use cases and implement practical AI to automate work and surface insights.',
-    number: '03'
-  },
-  {
     image: '/images/services/market-entry.png',
     title: 'Market Entry & FDI Facilitation',
     description: 'Navigate regulations, partnerships, and financing to enter new markets and unlock cross-border investment.',
-    number: '04'
+    number: '01'
   },
   {
     image: '/images/services/project-management.png',
     title: 'Program / Project Management',
     description: 'Plan, execute, and govern complex initiatives with clear milestones, owners, and measurable outcomes.',
+    number: '02'
+  },
+  {
+    image: '/images/services/erp-creation.png',
+    title: 'Digital Transformation Services',
+    description: 'Design and deploy right-sized ERP systems that streamline workflows, integrate data, and improve visibility.',
+    number: '03'
+  },
+  {
+    image: '/images/services/website-design.png',
+    title: 'Website Design & Development',
+    description: 'Build modern, fast, and secure websites that convert visitors into customers and support growth.',
+    number: '04'
+  },
+  {
+    image: '/images/services/ai-optimization.png',
+    title: 'AI Optimization Strategy',
+    description: 'Identify high-impact use cases and implement practical AI to automate work and surface insights.',
     number: '05'
   }
 ];
 
 const ServicesSection: React.FC = () => {
-  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault();
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-      const headerHeight = 96; // Account for sticky header height (h-24 = 96px)
-      const targetPosition = targetElement.offsetTop - headerHeight;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
   return (
     <section id="services" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,9 +75,8 @@ const ServicesSection: React.FC = () => {
 
             <div className="pt-4">
               <a
-                href="#contact"
-                onClick={(e) => handleSmoothScroll(e, 'contact')}
-                className="inline-flex items-center text-gray-900 font-medium hover:text-gray-600 transition-colors group"
+                href="/contact"
+                className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors group"
               >
                 Get in Touch
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -115,49 +100,65 @@ const ServicesSection: React.FC = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <a
-                key={service.title}
-                href="#contact"
-                onClick={(e) => handleSmoothScroll(e, 'contact')}
-                className="group cursor-pointer block"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              >
-                <div className="relative overflow-hidden rounded-2xl mb-6">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
-                  <div className="absolute top-6 left-6">
-                    <span className="inline-block px-3 py-1 bg-white bg-opacity-90 rounded-full text-sm font-bold text-gray-900">
-                      {service.number}
-                    </span>
-                  </div>
-                </div>
+            {services.map((service, index) => {
+              const isProjectManagement = service.title === 'Program / Project Management';
+              const isMarketEntry = service.title === 'Market Entry & FDI Facilitation';
+              const isDigitalTransformation = service.title === 'Digital Transformation Services';
+              const isWebsiteDesign = service.title === 'Website Design & Development';
+              const isAIOptimization = service.title === 'AI Optimization Strategy';
 
-                <div className="space-y-4">
-                  <h4 className="text-2xl font-bold text-gray-900 group-hover:text-gray-600 transition-colors">
-                    {service.title}
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <div className="flex items-center text-gray-900 font-medium group-hover:text-gray-600 transition-colors">
-                    <span className="mr-2">Explore Service</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              let href = '/contact';
+              if (isProjectManagement) href = '/project-management';
+              if (isMarketEntry) href = '/market-entry';
+              if (isDigitalTransformation) href = '/digital-transformation';
+              if (isWebsiteDesign) href = '/website-design';
+              if (isAIOptimization) href = '/ai-optimization';
+
+              return (
+                <a
+                  key={service.title}
+                  href={href}
+                  className="group cursor-pointer block"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  <div className="relative overflow-hidden rounded-2xl mb-6">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
+                    <div className="absolute top-6 left-6">
+                      <span className="inline-block px-3 py-1 bg-white bg-opacity-90 rounded-full text-sm font-bold text-gray-900">
+                        {service.number}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </a>
-            ))}
+
+                  <div className="space-y-4">
+                    <h4 className="text-2xl font-bold text-gray-900 group-hover:text-gray-600 transition-colors">
+                      {service.title}
+                    </h4>
+                    <p className="text-gray-600 leading-relaxed">
+                      {service.description}
+                    </p>
+                    <div className="flex items-center text-blue-600 font-medium group-hover:text-blue-700 transition-colors">
+                      <span className="mr-2">
+                        {isProjectManagement || isMarketEntry || isDigitalTransformation || isWebsiteDesign || isAIOptimization ? 'Learn More' : 'Explore Service'}
+                      </span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
 
 
       </div>
-    </section>
+    </section >
   );
 };
 

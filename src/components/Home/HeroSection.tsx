@@ -91,16 +91,16 @@ const HeroSection: React.FC = () => {
         </video>
 
         {/* Professional overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/60 to-blue-900/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/30 to-blue-900/70"></div>
       </div>
 
       {/* Main Content - Centered Layout */}
       <div className="relative z-10 min-h-screen flex items-center justify-center">
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 w-full text-center">
           {/* Professional Badge */}
-          <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 mb-8" data-aos="fade-up">
-            <div className="w-3 h-3 bg-white rounded-full mr-3"></div>
+          <div className="inline-flex items-center bg-blue-500/20 backdrop-blur-md rounded-full px-6 py-3 border border-blue-300/30 mb-8" data-aos="fade-up">
+            <div className="w-3 h-3 bg-blue-300 rounded-full mr-3"></div>
             <span className="text-sm font-medium tracking-wide text-white">STRATEGIC BUSINESS CONSULTANCY</span>
           </div>
 
@@ -122,9 +122,8 @@ const HeroSection: React.FC = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="600">
             <a
-              href="#contact"
-              onClick={(e) => handleSmoothScroll(e, 'contact')}
-              className="inline-flex items-center justify-center bg-white text-slate-900 px-10 py-5 rounded-full text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg"
+              href="/contact"
+              className="inline-flex items-center justify-center bg-white text-blue-600 px-10 py-5 rounded-full text-lg font-semibold hover:bg-blue-50 transition-all duration-300 shadow-lg"
             >
               Get Started Today
               <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,7 +134,7 @@ const HeroSection: React.FC = () => {
             <a
               href="#services"
               onClick={(e) => handleSmoothScroll(e, 'services')}
-              className="inline-flex items-center justify-center border-2 border-white/30 text-white px-10 py-5 rounded-full text-lg font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+              className="inline-flex items-center justify-center border-2 border-blue-300/50 text-white px-10 py-5 rounded-full text-lg font-semibold hover:bg-blue-500/20 hover:border-blue-300/70 transition-all duration-300 backdrop-blur-sm"
             >
               Our Services
             </a>
