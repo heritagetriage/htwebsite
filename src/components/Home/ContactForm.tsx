@@ -104,7 +104,7 @@ const ContactForm: React.FC = () => {
                       href="mailto:adwoa-adubra@heritagetriage.com"
                       className="text-gray-700 hover:text-gray-900 transition-colors block text-base"
                     >
-                      adwoa-adubra@heritagetriage.com
+                      info@heritagetriage.com
                     </a>
                   </div>
                   <div>

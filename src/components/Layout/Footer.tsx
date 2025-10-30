@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
                     href="mailto:adwoa-adubra@heritagetriage.com"
                     className="text-slate-300 hover:text-white transition-colors text-base leading-relaxed block"
                   >
-                    adwoa-adubra@heritagetriage.com
+                    info@heritagetriage.com
                   </a>
                 </div>
                 <div>

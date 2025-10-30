@@ -6,6 +6,12 @@ import Footer from '../components/Layout/Footer';
 import Sidebar from '../components/Admin/Sidebar';
 import HomePage from '../pages/HomePage';
 import BookingPage from '../pages/BookingPage';
+import ProjectManagementPage from '../pages/ProjectManagementPage';
+import MarketEntryPage from '../pages/MarketEntryPage';
+import DigitalTransformationPage from '../pages/DigitalTransformationPage';
+import WebsiteDesignPage from '../pages/WebsiteDesignPage';
+import AIOptimizationPage from '../pages/AIOptimizationPage';
+import ContactPage from '../pages/ContactPage';
 import AdminLoginPage from '../pages/AdminLoginPage';
 import AdminDashboard from '../pages/AdminDashboard';
 import AdminEventsPage from '../pages/AdminEventsPage';
@@ -43,22 +49,58 @@ const AppRoutes: React.FC = () => {
           <HomePage />
         </PublicLayout>
       } />
-      
+
       <Route path="/booking" element={
         <PublicLayout>
           <BookingPage />
         </PublicLayout>
       } />
-      
+
       <Route path="/booking/:eventId" element={
         <PublicLayout>
           <BookingPage />
         </PublicLayout>
       } />
-      
+
+      <Route path="/project-management" element={
+        <PublicLayout>
+          <ProjectManagementPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/market-entry" element={
+        <PublicLayout>
+          <MarketEntryPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/digital-transformation" element={
+        <PublicLayout>
+          <DigitalTransformationPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/website-design" element={
+        <PublicLayout>
+          <WebsiteDesignPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/ai-optimization" element={
+        <PublicLayout>
+          <AIOptimizationPage />
+        </PublicLayout>
+      } />
+
+      <Route path="/contact" element={
+        <PublicLayout>
+          <ContactPage />
+        </PublicLayout>
+      } />
+
       {/* Admin Login Route */}
       <Route path="/admin/login" element={<AdminLoginPage />} />
-      
+
       {/* Protected Admin Routes */}
       <Route path="/admin/*" element={
         <ProtectedRoute>
@@ -76,7 +118,7 @@ const AppRoutes: React.FC = () => {
           </AdminLayout>
         </ProtectedRoute>
       } />
-      
+
       {/* Catch all route */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
