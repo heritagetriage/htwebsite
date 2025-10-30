@@ -111,9 +111,10 @@ const Header: React.FC = () => {
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50 border-b border-blue-100">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center h-24">
-          {/* Logo - Far Left */}
-          <div className="flex items-center">
+        <div className="flex items-center justify-between h-24">
+          {/* Left side - Logo and Navigation */}
+          <div className="flex items-center space-x-8">
+            {/* Logo */}
             <button
               onClick={() => {
                 navigate('/');
@@ -129,125 +130,125 @@ const Header: React.FC = () => {
                 heritage<span className="font-bold">triage</span>
               </div>
             </button>
-          </div>
 
-          {/* Desktop Navigation - Center */}
-          <div className="hidden lg:flex flex-1 justify-center">
-            <div className="flex items-center space-x-8">
-              {navigation.map((item) => {
-                if (item.name === 'Services') {
-                  return (
-                    <div
-                      key={item.name}
-                      className="relative group"
-                    >
-                      <a
-                        href={item.href}
-                        onClick={(e) => handleSmoothScroll(e, item.href)}
-                        className={`text-xl font-medium transition-colors duration-200 flex items-center ${isActive(item.href)
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex">
+              <div className="flex items-center space-x-8">
+                {navigation.map((item) => {
+                  if (item.name === 'Services') {
+                    return (
+                      <div
+                        key={item.name}
+                        className="relative group"
+                      >
+                        <a
+                          href={item.href}
+                          onClick={(e) => handleSmoothScroll(e, item.href)}
+                          className={`text-xl font-medium transition-colors duration-200 flex items-center ${isActive(item.href)
+                            ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
+                            : 'text-gray-700 hover:text-blue-600'
+                            }`}
+                        >
+                          {item.name}
+                          <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </a>
+
+                        {/* Services Dropdown */}
+                        <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-blue-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                          {services.map((service, index) => (
+                            <Link
+                              key={index}
+                              to={service.href}
+                              className="block px-4 py-2 hover:bg-blue-50 transition-colors duration-200"
+                            >
+                              <div className="text-base font-medium text-gray-800 hover:text-blue-600 transition-colors">
+                                {service.title}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  if (item.name === 'Strategic Focus') {
+                    return (
+                      <div
+                        key={item.name}
+                        className="relative group"
+                      >
+                        <a
+                          href={item.href}
+                          onClick={(e) => handleSmoothScroll(e, item.href)}
+                          className={`text-xl font-medium transition-colors duration-200 flex items-center ${isActive(item.href)
+                            ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
+                            : 'text-gray-700 hover:text-blue-600'
+                            }`}
+                        >
+                          {item.name}
+                          <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </a>
+
+                        {/* Strategic Focus Dropdown */}
+                        <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-blue-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                          {strategicFocus.map((focus, index) => (
+                            <Link
+                              key={index}
+                              to={focus.href}
+                              className="block px-4 py-2 hover:bg-blue-50 transition-colors duration-200"
+                            >
+                              <div className="text-base font-medium text-gray-800 hover:text-blue-600 transition-colors">
+                                {focus.title}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  // Handle different types of links
+                  if (item.href === '/' || item.href.startsWith('/')) {
+                    // Use Link for page navigation
+                    return (
+                      <Link
+                        key={item.name}
+                        to={item.href}
+                        className={`text-xl font-medium transition-colors duration-200 ${isActive(item.href)
                           ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
                           : 'text-gray-700 hover:text-blue-600'
                           }`}
                       >
                         {item.name}
-                        <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </a>
-
-                      {/* Services Dropdown */}
-                      <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-blue-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                        {services.map((service, index) => (
-                          <Link
-                            key={index}
-                            to={service.href}
-                            className="block px-4 py-2 hover:bg-blue-50 transition-colors duration-200"
-                          >
-                            <div className="text-base font-medium text-gray-800 hover:text-blue-600 transition-colors">
-                              {service.title}
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                }
-
-                if (item.name === 'Strategic Focus') {
-                  return (
-                    <div
-                      key={item.name}
-                      className="relative group"
-                    >
+                      </Link>
+                    );
+                  } else {
+                    // Use anchor with smooth scroll for hash links
+                    return (
                       <a
+                        key={item.name}
                         href={item.href}
                         onClick={(e) => handleSmoothScroll(e, item.href)}
-                        className={`text-xl font-medium transition-colors duration-200 flex items-center ${isActive(item.href)
+                        className={`text-xl font-medium transition-colors duration-200 ${isActive(item.href)
                           ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
                           : 'text-gray-700 hover:text-blue-600'
                           }`}
                       >
                         {item.name}
-                        <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
                       </a>
-
-                      {/* Strategic Focus Dropdown */}
-                      <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-blue-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                        {strategicFocus.map((focus, index) => (
-                          <Link
-                            key={index}
-                            to={focus.href}
-                            className="block px-4 py-2 hover:bg-blue-50 transition-colors duration-200"
-                          >
-                            <div className="text-base font-medium text-gray-800 hover:text-blue-600 transition-colors">
-                              {focus.title}
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                }
-
-                // Handle different types of links
-                if (item.href === '/' || item.href.startsWith('/')) {
-                  // Use Link for page navigation
-                  return (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className={`text-xl font-medium transition-colors duration-200 ${isActive(item.href)
-                        ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
-                        : 'text-gray-700 hover:text-blue-600'
-                        }`}
-                    >
-                      {item.name}
-                    </Link>
-                  );
-                } else {
-                  // Use anchor with smooth scroll for hash links
-                  return (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      onClick={(e) => handleSmoothScroll(e, item.href)}
-                      className={`text-xl font-medium transition-colors duration-200 ${isActive(item.href)
-                        ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
-                        : 'text-gray-700 hover:text-blue-600'
-                        }`}
-                    >
-                      {item.name}
-                    </a>
-                  );
-                }
-              })}
+                    );
+                  }
+                })}
+              </div>
             </div>
           </div>
 
-          {/* Get in Touch Button - Far Right */}
-          <div className="flex items-center">
+          {/* Right side - Get in Touch Button and Mobile Menu */}
+          <div className="flex items-center space-x-4">
             <div className="hidden lg:block">
               <a
                 href="/contact"
@@ -258,7 +259,7 @@ const Header: React.FC = () => {
             </div>
 
             {/* Mobile menu button */}
-            <div className="lg:hidden ml-4">
+            <div className="lg:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900 p-2"
