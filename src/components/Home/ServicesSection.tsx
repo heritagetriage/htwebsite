@@ -105,7 +105,7 @@ const ServicesSection: React.FC = () => {
               const isMarketEntry = service.title === 'Market Entry & FDI Facilitation';
               const isDigitalTransformation = service.title === 'Digital Transformation Services';
               const isWebsiteDesign = service.title === 'Website Design & Development';
-              const isAIOptimization = service.title === 'AI Optimization Services';
+              const isAIOptimization = service.title === 'AI Optimization Strategy';
 
               let href = '/contact';
               if (isProjectManagement) href = '/project-management';
