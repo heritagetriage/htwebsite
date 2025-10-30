@@ -80,12 +80,10 @@ const DataDrivenInsightsPage: React.FC = () => {
             <section className="py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-                        <div className="relative" data-aos="fade-right">
-                            <img
-                                src="/images/strategic-focus/data-driven-insights.png"
-                                alt="Data-Driven Insights"
-                                className="w-full rounded-2xl shadow-2xl"
-                            />
+                        <div className="relative flex items-center justify-center" data-aos="fade-right">
+                            <div className="w-80 h-80 bg-gradient-to-br from-green-100 to-green-200 rounded-3xl flex items-center justify-center shadow-2xl">
+                                <BarChart3 className="w-32 h-32 text-green-600" />
+                            </div>
                         </div>
 
                         <div className="space-y-8" data-aos="fade-left">
