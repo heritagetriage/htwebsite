@@ -5,6 +5,7 @@ import { ArrowRight, Settings, Calculator, Users, Globe, Database, CheckCircle }
 
 const DigitalTransformationPage: React.FC = () => {
     useEffect(() => {
+        window.scrollTo(0, 0);
         AOS.init({
             duration: 800,
             easing: 'ease-out-cubic',
