@@ -5,6 +5,7 @@ import { ArrowRight, Shield, FileCheck, Globe, AlertTriangle, CheckCircle, Scale
 
 const ComplianceRiskPage: React.FC = () => {
     useEffect(() => {
+        window.scrollTo(0, 0);
         AOS.init({
             duration: 800,
             easing: 'ease-out-cubic',

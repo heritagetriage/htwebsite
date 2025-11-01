@@ -5,6 +5,7 @@ import { ArrowRight, Monitor, ShoppingCart, Globe, Palette, Settings, CheckCircl
 
 const WebsiteDesignPage: React.FC = () => {
     useEffect(() => {
+        window.scrollTo(0, 0);
         AOS.init({
             duration: 800,
             easing: 'ease-out-cubic',

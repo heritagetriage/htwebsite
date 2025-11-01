@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle, Target, Users, Globe, Calendar } from 'lucide-
 
 const ProjectManagementPage: React.FC = () => {
     useEffect(() => {
+        window.scrollTo(0, 0);
         AOS.init({
             duration: 800,
             easing: 'ease-out-cubic',

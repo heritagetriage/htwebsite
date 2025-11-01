@@ -5,6 +5,7 @@ import { ArrowRight, Zap, Cpu, Globe, TrendingUp, Lightbulb, Settings } from 'lu
 
 const InnovationEfficiencyPage: React.FC = () => {
     useEffect(() => {
+        window.scrollTo(0, 0);
         AOS.init({
             duration: 800,
             easing: 'ease-out-cubic',

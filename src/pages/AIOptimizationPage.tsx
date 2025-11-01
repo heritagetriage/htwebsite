@@ -5,6 +5,7 @@ import { ArrowRight, Brain, Target, Shield, Zap, Users, CheckCircle } from 'luci
 
 const AIOptimizationPage: React.FC = () => {
     useEffect(() => {
+        window.scrollTo(0, 0);
         AOS.init({
             duration: 800,
             easing: 'ease-out-cubic',
