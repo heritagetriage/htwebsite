@@ -26,7 +26,7 @@ const Header: React.FC = () => {
     },
     {
       title: 'Digital Transformation Services',
-      href: '/services/digital-strategy'
+      href: '/services/digital-transformation'
     },
     {
       title: 'Website Design & Development',
