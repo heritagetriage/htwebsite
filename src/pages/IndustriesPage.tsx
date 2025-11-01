@@ -5,6 +5,7 @@ import { ArrowRight, Sprout, Cpu, Zap, Truck, MapPin } from 'lucide-react';
 
 const IndustriesPage: React.FC = () => {
     useEffect(() => {
+        window.scrollTo(0, 0);
         AOS.init({
             duration: 800,
             easing: 'ease-out-cubic',

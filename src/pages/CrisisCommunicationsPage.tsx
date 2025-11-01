@@ -5,6 +5,7 @@ import { ArrowRight, Shield, Clock, MessageSquare, Users, AlertTriangle, CheckCi
 
 const CrisisCommunicationsPage: React.FC = () => {
     useEffect(() => {
+        window.scrollTo(0, 0);
         AOS.init({
             duration: 800,
             easing: 'ease-out-cubic',

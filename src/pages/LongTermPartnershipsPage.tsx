@@ -5,6 +5,7 @@ import { ArrowRight, Users, Heart, TrendingUp, Globe, Clock, Handshake } from 'l
 
 const LongTermPartnershipsPage: React.FC = () => {
     useEffect(() => {
+        window.scrollTo(0, 0);
         AOS.init({
             duration: 800,
             easing: 'ease-out-cubic',

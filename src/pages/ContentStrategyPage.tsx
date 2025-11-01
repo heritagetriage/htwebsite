@@ -5,6 +5,7 @@ import { ArrowRight, PenTool, BookOpen, Video, Mic, Image, TrendingUp } from 'lu
 
 const ContentStrategyPage: React.FC = () => {
     useEffect(() => {
+        window.scrollTo(0, 0);
         AOS.init({
             duration: 800,
             easing: 'ease-out-cubic',
