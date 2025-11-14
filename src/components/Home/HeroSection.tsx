@@ -1,10 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     const targetElement = document.getElementById(targetId);
@@ -20,79 +17,18 @@ const HeroSection: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      // Optimize video loading
-      const handleLoadedData = () => setVideoLoaded(true);
-
-      // Handle Safari-specific issues with error handling
-      const handleCanPlayThrough = () => {
-        video.play().catch(() => {
-          // Silently handle autoplay failures (common in browsers)
-        });
-      };
-
-      video.addEventListener('loadeddata', handleLoadedData);
-      video.addEventListener('canplaythrough', handleCanPlayThrough);
-
-      // Preload video on user interaction for mobile
-      const handleUserInteraction = () => {
-        if (video.readyState < 2) {
-          video.load();
-        }
-        document.removeEventListener('touchstart', handleUserInteraction);
-        document.removeEventListener('click', handleUserInteraction);
-      };
-
-      document.addEventListener('touchstart', handleUserInteraction, { passive: true });
-      document.addEventListener('click', handleUserInteraction);
-
-      return () => {
-        video.removeEventListener('loadeddata', handleLoadedData);
-        video.removeEventListener('canplaythrough', handleCanPlayThrough);
-        document.removeEventListener('touchstart', handleUserInteraction);
-        document.removeEventListener('click', handleUserInteraction);
-      };
-    }
-  }, []);
   return (
     <section id="hero" className="relative min-h-screen bg-slate-900 overflow-hidden">
-      {/* Background Video */}
+      {/* Background Image */}
       <div className="absolute inset-0">
-        {/* Fallback background - shows immediately while video loads */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900"></div>
-
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/images/services/hero-poster.jpg"
+        <img
+          src="/images/newimages/airportlounge.jpeg"
+          alt="Strategic Consulting Background"
           className="w-full h-full object-cover"
-          style={{
-            willChange: 'transform',
-            backfaceVisibility: 'hidden',
-            perspective: '1000px'
-          }}
-        >
-          {/* Multiple source formats for better browser compatibility */}
-          <source src="/images/services/hero.webm" type="video/webm" />
-          <source src="/images/services/hero.mp4" type="video/mp4" />
+        />
 
-          {/* Fallback for browsers that don't support video */}
-          <img
-            src="/images/services/hero-fallback.jpg"
-            alt="Strategic Consulting Background"
-            className="w-full h-full object-cover"
-          />
-        </video>
-
-        {/* Professional overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/60 to-blue-900/80"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/30 to-blue-900/70"></div>
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
       {/* Main Content - Centered Layout */}

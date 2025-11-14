@@ -104,7 +104,7 @@ const MarketEntryPage: React.FC = () => {
                     <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
                         <div className="relative" data-aos="fade-right">
                             <img
-                                src="/images/services/market-entry.png"
+                                src="/images/newimages/market-entry.jpeg"
                                 alt="Market Entry & FDI Facilitation"
                                 className="w-full rounded-2xl shadow-2xl"
                             />
