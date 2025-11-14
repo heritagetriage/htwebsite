@@ -4,35 +4,35 @@ import { ArrowRight } from 'lucide-react';
 
 const services = [
   {
-    image: '/images/services/market-entry.png',
+    image: '/images/newimages/pexels-fauxels-3184416.jpg.jpeg',
     title: 'Market Entry & FDI Facilitation',
     description: 'Navigate regulations, partnerships, and financing to enter new markets and unlock cross-border investment.',
     number: '01',
     href: '/services/market-entry'
   },
   {
-    image: '/images/services/project-management.png',
+    image: '/images/newimages/projectmanagement.jpg',
     title: 'Program / Project Management',
     description: 'Plan, execute, and govern complex initiatives with clear milestones, owners, and measurable outcomes.',
     number: '02',
     href: '/services/project-management'
   },
   {
-    image: '/images/services/erp-creation.png',
+    image: '/images/newimages/digitaltransformation.jpg',
     title: 'Digital Transformation Services',
     description: 'Design and deploy right-sized ERP systems that streamline workflows, integrate data, and improve visibility.',
     number: '03',
     href: '/services/digital-strategy'
   },
   {
-    image: '/images/services/website-design.png',
+    image: '/images/newimages/websitedesign.jpg',
     title: 'Website Design & Development',
     description: 'Build modern, fast, and secure websites that convert visitors into customers and support growth.',
     number: '04',
     href: '/services/content-strategy'
   },
   {
-    image: '/images/services/ai-optimization.png',
+    image: '/images/newimages/ai.jpg',
     title: 'AI Optimization Services',
     description: 'Identify high-impact use cases and implement practical AI to automate work and surface insights.',
     number: '05',

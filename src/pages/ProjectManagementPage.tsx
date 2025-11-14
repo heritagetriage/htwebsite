@@ -85,7 +85,7 @@ const ProjectManagementPage: React.FC = () => {
                         {/* Left Column - Image */}
                         <div className="relative" data-aos="fade-right">
                             <img
-                                src="/images/services/project-management.png"
+                                src="/images/newimages/projectmanagement.jpg"
                                 alt="Project Management"
                                 className="w-full rounded-2xl shadow-2xl"
                             />

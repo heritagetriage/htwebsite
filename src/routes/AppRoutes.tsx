@@ -20,7 +20,7 @@ import MarketEntryPage from '../pages/MarketEntryPage';
 import ProjectManagementPage from '../pages/ProjectManagementPage';
 import AIOptimizationPage from '../pages/AIOptimizationPage';
 import DigitalTransformationPage from '../pages/DigitalTransformationPage';
-import ContentStrategyPage from '../pages/ContentStrategyPage';
+import WebsiteDesignPage from '../pages/WebsiteDesignPage';
 import ClientCentricSolutionsPage from '../pages/ClientCentricSolutionsPage';
 import InnovationEfficiencyPage from '../pages/InnovationEfficiencyPage';
 import DataDrivenInsightsPage from '../pages/DataDrivenInsightsPage';
@@ -112,9 +112,9 @@ const AppRoutes: React.FC = () => {
         </PublicLayout>
       } />
 
-      <Route path="/services/content-strategy" element={
+      <Route path="/services/website-design" element={
         <PublicLayout>
-          <ContentStrategyPage />
+          <WebsiteDesignPage />
         </PublicLayout>
       } />
 
