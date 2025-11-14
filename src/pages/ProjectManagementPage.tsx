@@ -14,21 +14,6 @@ const ProjectManagementPage: React.FC = () => {
         });
     }, []);
 
-    const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-        e.preventDefault();
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-            const headerHeight = 96; // Account for sticky header height
-            const targetPosition = targetElement.offsetTop - headerHeight;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    };
-
     const expertise = [
         {
             icon: Target,
