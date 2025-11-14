@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 const services = [
   {
-    image: '/images/newimages/pexels-fauxels-3184416.jpg.jpeg',
+    image: 'public/images/newimages/market-entry.jpeg',
     title: 'Market Entry & FDI Facilitation',
     description: 'Navigate regulations, partnerships, and financing to enter new markets and unlock cross-border investment.',
     number: '01',
